@@ -202,6 +202,52 @@
             .phone-number { font-size: 26px; }
             .comparison-table { display: block; overflow-x: auto; }
         }
+        /* --- СТИЛИ КАЛЬКУЛЯТОРА --- */
+.calc-section { padding: 100px 0; background: #fff; border-top: 1px solid var(--border); }
+.calc-grid { display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: start; }
+.calc-group { margin-bottom: 30px; }
+.calc-group h4 { font-family: 'Manrope', sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 700; }
+
+/* Карточки выбора */
+.calc-options { display: flex; flex-direction: column; gap: 10px; }
+.calc-card { border: 1px solid var(--border); border-radius: 12px; padding: 16px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 12px; }
+.calc-card:hover { border-color: var(--accent); }
+.calc-card.active { background: var(--bg); border-color: var(--accent); }
+.calc-card input { accent-color: var(--accent); width: 18px; height: 18px; }
+
+/* Площадь */
+.calc-area-controls { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+.calc-area-controls input[type="number"] { width: 80px; height: 50px; text-align: center; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 700; border: 1px solid var(--border); border-radius: 12px; outline: none; }
+.calc-btn-step { width: 50px; height: 50px; border: 1px solid var(--border); background: var(--bg); border-radius: 12px; font-size: 24px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+.calc-btn-step:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.calc-range { width: 100%; accent-color: var(--accent); cursor: pointer; }
+
+/* Чекбоксы */
+.calc-extras { display: flex; flex-direction: column; gap: 10px; }
+.calc-check { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-size: 14px; color: var(--gray); }
+.calc-check input { accent-color: var(--accent); width: 18px; height: 18px; margin-top: 2px; }
+
+/* Смета (правая колонка) */
+.calc-bill-wrapper { position: sticky; top: 100px; }
+.calc-bill { background: var(--bg); padding: 32px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+.calc-bill-header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px; }
+.calc-bill-header h3 { font-family: 'Manrope', sans-serif; font-size: 20px; margin-bottom: 4px; }
+.calc-bill-header p { font-size: 13px; color: var(--gray); }
+.calc-lines { list-style: none; margin-bottom: 20px; }
+.calc-line { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 12px; color: var(--gray); }
+.calc-line span:last-child { font-weight: 600; color: var(--text); }
+.calc-total { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 16px; margin-bottom: 20px; }
+.calc-total span:first-child { font-weight: 600; font-size: 16px; }
+.calc-total span:last-child { font-family: 'Manrope', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); }
+.calc-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: #fff; padding: 16px; border-radius: 12px; margin-bottom: 20px; }
+.calc-meta-label { display: block; font-size: 12px; color: var(--gray); text-transform: uppercase; margin-bottom: 4px; }
+.calc-meta-value { font-weight: 600; font-size: 15px; }
+.calc-fine { font-size: 11px; color: #999; text-align: center; margin-top: 16px; line-height: 1.4; }
+
+@media (max-width: 992px) {
+    .calc-grid { grid-template-columns: 1fr; }
+    .calc-bill-wrapper { position: static; }
+}
     </style>
 </head>
 <body>
@@ -359,7 +405,114 @@
             </div>
         </div>
     </section>
+<!-- КАЛЬКУЛЯТОР -->
+<section class="calc-section" id="calc">
+    <div class="container calc-grid">
+        <!-- Левая часть: Настройки -->
+        <div class="calc-settings">
+            <span class="label">Калькулятор</span>
+            <h2 class="h2">Посчитайте стоимость за минуту</h2>
+            <p class="subtitle" style="margin-bottom: 30px;">Выберите параметры вашего помещения. Точную цену назовем после бесплатного замера.</p>
 
+            <!-- 1. Выбор зоны -->
+            <div class="calc-group">
+                <h4>Где будем делать отделку?</h4>
+                <div class="calc-options">
+                    <label class="calc-card active">
+                        <input type="radio" name="calc-zone" value="bath" data-price="35" data-rate="4" checked>
+                        <span>Ванная / Туалет</span>
+                    </label>
+                    <label class="calc-card">
+                        <input type="radio" name="calc-zone" value="balcony" data-price="30" data-rate="5">
+                        <span>Балкон / Лоджия</span>
+                    </label>
+                    <label class="calc-card">
+                        <input type="radio" name="calc-zone" value="hallway" data-price="25" data-rate="6">
+                        <span>Коридор / Прихожая</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 2. Тип монтажа -->
+            <div class="calc-group">
+                <h4>Тип монтажа</h4>
+                <div class="calc-options">
+                    <label class="calc-card active">
+                        <input type="radio" name="calc-type" value="frame" data-mult="1" checked>
+                        <span>Каркасный (скрывает неровности)</span>
+                    </label>
+                    <label class="calc-card">
+                        <input type="radio" name="calc-type" value="glue" data-mult="0.9">
+                        <span>Клеевой (для ровных стен)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 3. Площадь -->
+            <div class="calc-group calc-area-group">
+                <h4>Площадь стен, м²</h4>
+                <div class="calc-area-controls">
+                    <button type="button" class="calc-btn-step" id="calcMinus">−</button>
+                    <input type="number" id="calcArea" value="12" min="1" max="100">
+                    <button type="button" class="calc-btn-step" id="calcPlus">+</button>
+                </div>
+                <input type="range" id="calcRange" min="1" max="100" value="12" class="calc-range">
+            </div>
+
+            <!-- 4. Дополнительно -->
+            <div class="calc-group">
+                <h4>Дополнительные услуги</h4>
+                <div class="calc-extras">
+                    <label class="calc-check">
+                        <input type="checkbox" name="calc-extra" value="dem" data-price="5" data-rate="30">
+                        <span>Демонтаж старой плитки (+5 р/м²)</span>
+                    </label>
+                    <label class="calc-check">
+                        <input type="checkbox" name="calc-extra" value="ins" data-price="10" data-rate="10">
+                        <span>Утепление балкона (+10 р/м²)</span>
+                    </label>
+                    <label class="calc-check">
+                        <input type="checkbox" name="calc-extra" value="light" data-price="40" data-rate="0" data-fixed="1">
+                        <span>Монтаж точечных светильников (+40 р/шт)</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая часть: Смета -->
+        <div class="calc-bill-wrapper">
+            <div class="calc-bill">
+                <div class="calc-bill-header">
+                    <h3>Предварительная смета</h3>
+                    <p>Минск · работа без материалов</p>
+                </div>
+                
+                <ul class="calc-lines" id="calcLines">
+                    <!-- Строки сметы будут генерироваться здесь -->
+                </ul>
+
+                <div class="calc-total">
+                    <span>Итого за работу:</span>
+                    <span id="calcTotal">0 BYN</span>
+                </div>
+
+                <div class="calc-meta">
+                    <div>
+                        <span class="calc-meta-label">Срок</span>
+                        <span class="calc-meta-value" id="calcDays">2 дня</span>
+                    </div>
+                    <div>
+                        <span class="calc-meta-label">Бригада</span>
+                        <span class="calc-meta-value" id="calcCrew">1 мастер</span>
+                    </div>
+                </div>
+
+                <a href="https://t.me/vladzimir_abramovich" target="_blank" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 20px;">Вызвать на замер с этим расчетом</a>
+                <p class="calc-fine">Расчет ориентировочный. Точная смета составляется после замера и фиксируется в договоре.</p>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- ПРЕИМУЩЕСТВА -->
     <section id="benefits" class="benefits-section">
         <div class="container">
@@ -545,6 +698,142 @@
             // Пока просто заглушка, так как в дизайне на скринах мобильного меню нет
             alert('Для мобильной версии меню находится в разработке. Напишите нам в Telegram!');
         });
+        // --- ЛОГИКА КАЛЬКУЛЯТОРА ---
+document.addEventListener('DOMContentLoaded', function() {
+    const calcSection = document.getElementById('calc');
+    if (!calcSection) return;
+
+    const areaInput = document.getElementById('calcArea');
+    const rangeInput = document.getElementById('calcRange');
+    const minusBtn = document.getElementById('calcMinus');
+    const plusBtn = document.getElementById('calcPlus');
+    const totalEl = document.getElementById('calcTotal');
+    const daysEl = document.getElementById('calcDays');
+    const crewEl = document.getElementById('calcCrew');
+    const linesEl = document.getElementById('calcLines');
+
+    // Функция обновления сметы
+    function updateCalc() {
+        let area = parseFloat(areaInput.value) || 1;
+        if (area < 1) area = 1;
+        if (area > 100) area = 100;
+        
+        // Синхронизация ползунка и инпута
+        rangeInput.value = area;
+        areaInput.value = area;
+
+        // Получаем выбранные параметры
+        const zone = document.querySelector('input[name="calc-zone"]:checked');
+        const type = document.querySelector('input[name="calc-type"]:checked');
+        
+        const basePrice = parseFloat(zone.dataset.price);
+        const rate = parseFloat(zone.dataset.rate); // м2 в день
+        const mult = parseFloat(type.dataset.mult);
+
+        let total = area * basePrice * mult;
+        let days = Math.ceil(area / rate);
+        
+        // Очищаем список
+        linesEl.innerHTML = '';
+
+        // Добавляем базовую строку
+        addLine(zone.nextElementSibling.textContent, `${area} м² × ${(basePrice * mult).toFixed(0)} BYN`, `${(area * basePrice * mult).toFixed(0)} BYN`);
+
+        // Считаем допы
+        const extras = document.querySelectorAll('input[name="calc-extra"]:checked');
+        extras.forEach(extra => {
+            const name = extra.nextElementSibling.textContent.split('(')[0].trim();
+            const price = parseFloat(extra.dataset.price);
+            const exRate = parseFloat(extra.dataset.rate);
+            const isFixed = extra.dataset.fixed === '1';
+
+            let cost = 0;
+            if (isFixed) {
+                cost = price; // Фиксированная цена (например, за светильник)
+                total += cost;
+                addLine(name, `1 шт × ${price} BYN`, `${cost} BYN`);
+            } else {
+                cost = area * price;
+                total += cost;
+                days += Math.ceil(area / exRate);
+                addLine(name, `${area} м² × ${price} BYN`, `${cost} BYN`);
+            }
+        });
+
+        // Определяем бригаду
+        let crew = 1;
+        if (area > 25 && zone.value === 'bath') {
+            crew = 2;
+            days = Math.ceil(days / 1.5); // Двое работают быстрее
+        }
+
+        // Выводим итоги
+        totalEl.textContent = `${Math.round(total)} BYN`;
+        
+        // Склонение дней
+        let dayWord = 'дней';
+        if (days % 10 === 1 && days % 100 !== 11) dayWord = 'день';
+        else if ([2,3,4].includes(days % 10) && ![12,13,14].includes(days % 100)) dayWord = 'дня';
+        
+        daysEl.textContent = `${days} ${dayWord}`;
+        crewEl.textContent = crew === 2 ? '2 мастера' : '1 мастер';
+    }
+
+    // Вспомогательная функция добавления строки
+    function addLine(title, detail, sum) {
+        const li = document.createElement('li');
+        li.className = 'calc-line';
+        li.innerHTML = `<span>${title} <br><small style="font-size:11px; color:#999;">${detail}</small></span><span>${sum}</span>`;
+        linesEl.appendChild(li);
+    }
+
+    // Обработчики событий
+    areaInput.addEventListener('input', updateCalc);
+    rangeInput.addEventListener('input', function() {
+        areaInput.value = this.value;
+        updateCalc();
+    });
+
+    minusBtn.addEventListener('click', () => {
+        let val = parseFloat(areaInput.value) || 1;
+        if (val > 1) {
+            areaInput.value = val - 1;
+            updateCalc();
+        }
+    });
+
+    plusBtn.addEventListener('click', () => {
+        let val = parseFloat(areaInput.value) || 1;
+        if (val < 100) {
+            areaInput.value = val + 1;
+            updateCalc();
+        }
+    });
+
+    // Подсветка активных карточек и пересчет
+    const radioGroups = document.querySelectorAll('input[type="radio"]');
+    radioGroups.forEach(radio => {
+        radio.addEventListener('change', function() {
+            // Убираем класс active у всех карточек в этой группе
+            const name = this.name;
+            document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                r.closest('.calc-card').classList.remove('active');
+            });
+            // Добавляем класс active выбранной
+            this.closest('.calc-card').classList.add('active');
+            updateCalc();
+        });
+    });
+
+    // Чекбоксы
+    document.querySelectorAll('input[name="calc-extra"]').forEach(cb => {
+        cb.addEventListener('change', updateCalc);
+    });
+
+    // Первый запуск
+    updateCalc();
+});
     </script>
+    
 </body>
 </html>
