@@ -15,6 +15,180 @@
         }
 
         /* --- БАЗОВЫЕ СТИЛИ --- */
+/* --- ИМПОРТ ШРИФТОВ (если еще не подключены) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@700&display=swap');
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ ШАПКИ --- */
+body {
+    /* Важно: отступ, чтобы фиксированная шапка не перекрывала контент */
+    padding-top: 72px; 
+    font-family: 'Inter', sans-serif; 
+}
+
+.xK9m-header { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 72px; 
+    z-index: 50; /* Увеличил z-index, чтобы шапка была поверх всего */
+    background: rgba(249, 248, 246, 0.95); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); /* Для Safari */
+    border-bottom: 1px solid #E5E1DB; 
+    display: flex; 
+    align-items: center; 
+    transition: background 0.3s ease; 
+    animation: xK9m-fadeIn 0.4s ease-out; 
+}
+
+.xK9m-wrapper { 
+    max-width: 1170px; 
+    margin: 0 auto; 
+    padding: 0 16px; 
+    width: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.xK9m-logo { 
+    font-family: 'Manrope', sans-serif; 
+    font-size: 20px; 
+    font-weight: 700; 
+    letter-spacing: -0.5px; 
+    color: #1A1A1A; 
+    text-decoration: none; 
+    white-space: nowrap;
+}
+
+.xK9m-nav-list { 
+    display: flex; 
+    gap: 32px; 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Inter', sans-serif; 
+    font-size: 15px; 
+    color: #4A4A4A; 
+}
+
+.xK9m-nav-list a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: color 250ms ease; 
+}
+
+.xK9m-nav-list a:hover { 
+    color: #B59F8B; 
+}
+
+.xK9m-actions { 
+    display: flex; 
+    align-items: center; 
+    gap: 24px; 
+}
+
+.xK9m-badge { 
+    font-family: 'Inter', sans-serif; 
+    font-size: 11px; 
+    font-weight: 500; 
+    letter-spacing: 0.05em; 
+    color: #B59F8B; 
+    text-transform: uppercase; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+.xK9m-dot { 
+    width: 6px; 
+    height: 6px; 
+    background: #B59F8B; 
+    border-radius: 50%; 
+    box-shadow: 0 0 0 0 rgba(181, 159, 139, 0.7); 
+    animation: xK9m-pulse 2s infinite; 
+}
+
+.xK9m-btn { 
+    background: #B59F8B; 
+    color: #FFFFFF; 
+    font-family: 'Inter', sans-serif; 
+    font-size: 14px; 
+    padding: 10px 20px; 
+    border-radius: 12px; 
+    text-decoration: none; 
+    transition: background 250ms ease, transform 250ms ease; 
+    white-space: nowrap;
+}
+
+.xK9m-btn:hover { 
+    background: #9E8875; 
+    transform: scale(1.02); 
+}
+
+.xK9m-burger { 
+    display: none; 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    color: #1A1A1A; 
+    padding: 8px; 
+}
+
+/* --- АНИМАЦИИ --- */
+@keyframes xK9m-fadeIn { 
+    from { opacity: 0; transform: translateY(-10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+@keyframes xK9m-pulse { 
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(181, 159, 139, 0.7); } 
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(181, 159, 139, 0); } 
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(181, 159, 139, 0); } 
+}
+
+/* --- МОБИЛЬНАЯ ВЕРСИЯ (МЕДИА-ЗАПРОС) --- */
+@media (max-width: 992px) {
+    .xK9m-badge { display: none; } /* Скрываем бейдж на планшетах и телефонах */
+}
+
+@media (max-width: 768px) {
+    .xK9m-burger { display: block; } /* Показываем кнопку-бургер */
+    .xK9m-actions { display: none; } /* Скрываем кнопку TG, чтобы не мешала (она будет в меню) */
+    
+    /* Стили для выпадающего мобильного меню */
+    .xK9m-nav {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: rgba(249, 248, 246, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #E5E1DB;
+        display: none; /* Скрыто по умолчанию */
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .xK9m-nav.active {
+        display: block; /* Показываем при клике */
+        animation: xK9m-fadeIn 0.3s ease-out;
+    }
+
+    .xK9m-nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .xK9m-nav-list a {
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+    }
+}
+        
         * {
             margin: 0;
             padding: 0;
@@ -272,18 +446,33 @@
 </head>
 <body>
 
-    <!-- ШАПКА -->
-    <div class="container">
-        <header>
-            <div class="logo">Абрамович ВВ</div>
-            <nav class="nav-links">
-                <a href="#services">Услуги</a>
-                <a href="#about">О нас</a>
-                <a href="#contacts">Контакты</a>
-            </nav>
-            <div class="contact-phone">+7 (999) 000-00-00</div>
-        </header>
+    <header id="header" class="xK9m-header">
+  <div class="xK9m-wrapper">
+    <a href="/" class="xK9m-logo">ИП Абрамович В.В.</a>
+    
+    <nav class="xK9m-nav">
+      <ul class="xK9m-nav-list">
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#features">Преимущества</a></li>
+        <li><a href="#gallery">Галерея</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+    
+    <div class="xK9m-actions">
+      <!-- Бейдж статуса (виден только на десктопе) -->
+      <div class="xK9m-badge">
+        <span class="xK9m-dot"></span> На связи
+      </div>
+      <a href="https://t.me/vladzmir_abramovich" target="_blank" rel="noopener" class="xK9m-btn">Связаться в TG</a>
     </div>
+
+    <button class="xK9m-burger" aria-label="Меню">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+</header>
 
     <!-- ГЕРОЙ-РАЗДЕЛ -->
     <section class="hero container">
@@ -389,6 +578,25 @@
             </div>
         </div>
     </footer>
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.xK9m-header');
+    const burger = header?.querySelector('.xK9m-burger');
+    const nav = header?.querySelector('.xK9m-nav');
 
+    if (burger && nav) {
+        // Открытие/закрытие меню по клику на бургер
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Закрытие меню при клике на любую ссылку внутри него
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+    }
+});
 </body>
 </html>
