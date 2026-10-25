@@ -3,600 +3,464 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ИП Абрамович ВВ | Отделка ПВХ панелями</title>
-    <style>
-        /* --- ЦВЕТОВАЯ ПАЛИТРА (Правило 60-30-10) --- */
-        :root {
-            --bg-main: #F7F5F0; /* 60% - Светлый фон */
-            --text-main: #2A2A2A; /* 30% - Темный графит */
-            --text-light: #6B6B6B; 
-            --accent: #B89B72; /* 10% - Древесный/золотистый акцент */
-            --white: #FFFFFF;
-        }
-
-        /* --- БАЗОВЫЕ СТИЛИ --- */
-/* --- ИМПОРТ ШРИФТОВ (если еще не подключены) --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@700&display=swap');
-
-/* --- ОБЩИЕ СТИЛИ ДЛЯ ШАПКИ --- */
-body {
-    /* Важно: отступ, чтобы фиксированная шапка не перекрывала контент */
-    padding-top: 72px; 
-    font-family: 'Inter', sans-serif; 
-}
-
-.xK9m-header { 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 72px; 
-    z-index: 50; /* Увеличил z-index, чтобы шапка была поверх всего */
-    background: rgba(249, 248, 246, 0.95); 
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px); /* Для Safari */
-    border-bottom: 1px solid #E5E1DB; 
-    display: flex; 
-    align-items: center; 
-    transition: background 0.3s ease; 
-    animation: xK9m-fadeIn 0.4s ease-out; 
-}
-
-.xK9m-wrapper { 
-    max-width: 1170px; 
-    margin: 0 auto; 
-    padding: 0 16px; 
-    width: 100%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-}
-
-.xK9m-logo { 
-    font-family: 'Manrope', sans-serif; 
-    font-size: 20px; 
-    font-weight: 700; 
-    letter-spacing: -0.5px; 
-    color: #1A1A1A; 
-    text-decoration: none; 
-    white-space: nowrap;
-}
-
-.xK9m-nav-list { 
-    display: flex; 
-    gap: 32px; 
-    list-style: none; 
-    margin: 0; 
-    padding: 0; 
-    font-family: 'Inter', sans-serif; 
-    font-size: 15px; 
-    color: #4A4A4A; 
-}
-
-.xK9m-nav-list a { 
-    text-decoration: none; 
-    color: inherit; 
-    transition: color 250ms ease; 
-}
-
-.xK9m-nav-list a:hover { 
-    color: #B59F8B; 
-}
-
-.xK9m-actions { 
-    display: flex; 
-    align-items: center; 
-    gap: 24px; 
-}
-
-.xK9m-badge { 
-    font-family: 'Inter', sans-serif; 
-    font-size: 11px; 
-    font-weight: 500; 
-    letter-spacing: 0.05em; 
-    color: #B59F8B; 
-    text-transform: uppercase; 
-    display: flex; 
-    align-items: center; 
-    gap: 8px; 
-}
-
-.xK9m-dot { 
-    width: 6px; 
-    height: 6px; 
-    background: #B59F8B; 
-    border-radius: 50%; 
-    box-shadow: 0 0 0 0 rgba(181, 159, 139, 0.7); 
-    animation: xK9m-pulse 2s infinite; 
-}
-
-.xK9m-btn { 
-    background: #B59F8B; 
-    color: #FFFFFF; 
-    font-family: 'Inter', sans-serif; 
-    font-size: 14px; 
-    padding: 10px 20px; 
-    border-radius: 12px; 
-    text-decoration: none; 
-    transition: background 250ms ease, transform 250ms ease; 
-    white-space: nowrap;
-}
-
-.xK9m-btn:hover { 
-    background: #9E8875; 
-    transform: scale(1.02); 
-}
-
-.xK9m-burger { 
-    display: none; 
-    background: none; 
-    border: none; 
-    cursor: pointer; 
-    color: #1A1A1A; 
-    padding: 8px; 
-}
-
-/* --- АНИМАЦИИ --- */
-@keyframes xK9m-fadeIn { 
-    from { opacity: 0; transform: translateY(-10px); } 
-    to { opacity: 1; transform: translateY(0); } 
-}
-
-@keyframes xK9m-pulse { 
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(181, 159, 139, 0.7); } 
-    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(181, 159, 139, 0); } 
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(181, 159, 139, 0); } 
-}
-
-/* --- МОБИЛЬНАЯ ВЕРСИЯ (МЕДИА-ЗАПРОС) --- */
-@media (max-width: 992px) {
-    .xK9m-badge { display: none; } /* Скрываем бейдж на планшетах и телефонах */
-}
-
-@media (max-width: 768px) {
-    .xK9m-burger { display: block; } /* Показываем кнопку-бургер */
-    .xK9m-actions { display: none; } /* Скрываем кнопку TG, чтобы не мешала (она будет в меню) */
+    <title>ИП Абрамович В.В. | Отделка ПВХ панелями</title>
+    <!-- Подключаем шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
     
-    /* Стили для выпадающего мобильного меню */
-    .xK9m-nav {
-        position: absolute;
-        top: 72px;
-        left: 0;
-        width: 100%;
-        background: rgba(249, 248, 246, 0.98);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid #E5E1DB;
-        display: none; /* Скрыто по умолчанию */
-        padding: 20px 0;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    }
-
-    .xK9m-nav.active {
-        display: block; /* Показываем при клике */
-        animation: xK9m-fadeIn 0.3s ease-out;
-    }
-
-    .xK9m-nav-list {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .xK9m-nav-list a {
-        font-size: 18px;
-        display: block;
-        padding: 10px;
-    }
-}
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <style>
+        /* --- БАЗОВЫЕ СТИЛИ --- */
+        :root {
+            --bg-main: #F9F8F6;
+            --text-main: #1A1A1A;
+            --text-light: #4A4A4A;
+            --accent: #B59F8B;
+            --accent-hover: #9E8875;
+            --border-color: #E5E1DB;
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-main);
             color: var(--text-main);
             line-height: 1.6;
+            padding-top: 72px; /* Отступ для фиксированной шапки */
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; }
+        ul { list-style: none; }
 
-        h1, h2, h3 {
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
+        /* --- ШАПКА (из вашего кода) --- */
+        .xK9m-header { position: fixed; top: 0; left: 0; width: 100%; height: 72px; z-index: 50; background: rgba(249, 248, 246, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; transition: background 0.3s ease; animation: xK9m-fadeIn 0.4s ease-out; }
+        .xK9m-wrapper { max-width: 1170px; margin: 0 auto; padding: 0 16px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+        .xK9m-logo { font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: var(--text-main); }
+        .xK9m-nav-list { display: flex; gap: 32px; font-size: 15px; color: var(--text-light); }
+        .xK9m-nav-list a { color: inherit; transition: color 250ms ease; }
+        .xK9m-nav-list a:hover { color: var(--accent); }
+        .xK9m-actions { display: flex; align-items: center; gap: 24px; }
+        .xK9m-badge { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; color: var(--accent); text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+        .xK9m-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 0 rgba(181, 159, 139, 0.7); animation: xK9m-pulse 2s infinite; }
+        .xK9m-btn { background: var(--accent); color: #FFFFFF; font-size: 14px; padding: 10px 20px; border-radius: 12px; transition: background 250ms ease, transform 250ms ease; }
+        .xK9m-btn:hover { background: var(--accent-hover); transform: scale(1.02); }
+        .xK9m-burger { display: none; background: none; border: none; cursor: pointer; color: var(--text-main); padding: 8px; }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        @keyframes xK9m-fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes xK9m-pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(181, 159, 139, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(181, 159, 139, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(181, 159, 139, 0); } }
 
-        /* --- ШАПКА (NAVIGATION) --- */
-        header {
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(42, 42, 42, 0.1);
-        }
+        /* --- БЛОК УСЛУГ (aB2k) --- */
+        .aB2k-services { padding: 100px 0; position: relative; overflow: hidden; }
+        .aB2k-wrapper { max-width: 1170px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 1; }
+        .aB2k-layout { display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: start; }
+        .aB2k-sidebar { position: sticky; top: 100px; }
+        .aB2k-label { display: block; font-size: 14px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; letter-spacing: 0.5px; }
+        .aB2k-sidebar h2 { font: 700 44px/1.1 'Manrope', sans-serif; letter-spacing: -1.5px; color: var(--text-main); margin-bottom: 24px; }
+        .aB2k-subheading { font: 400 16px/1.6 'Inter', sans-serif; color: var(--text-light); margin-bottom: 32px; }
+        .aB2k-guarantees li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font: 400 14px 'Inter', sans-serif; color: var(--text-light); }
+        .aB2k-guarantees li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+        
+        .aB2k-card-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .aB2k-card { background: #FFFFFF; border-radius: 12px; border: 1px solid var(--border-color); padding: 24px; display: flex; flex-direction: column; transition: all 0.3s ease; box-shadow: rgba(0,0,0,0.04) 0px 4px 18px; opacity: 1; transform: translateY(0); }
+        .aB2k-card:hover { transform: translateY(-8px); border-color: #C7BDB1; }
+        .aB2k-card-img { margin-bottom: 16px; }
+        .aB2k-card-img img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
+        .aB2k-term { display: inline-block; background: var(--bg-main); padding: 4px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+        .aB2k-card-content h3 { font: 700 20px 'Manrope', sans-serif; margin-bottom: 12px; }
+        .aB2k-works { display: grid; grid-template-columns: 1fr; gap: 4px; margin-top: 16px; }
+        .aB2k-works li { font: 400 14px 'Inter', sans-serif; color: var(--text-light); padding-left: 20px; position: relative; }
+        .aB2k-works li::before { content: '—'; color: var(--accent); position: absolute; left: 0; }
+        .aB2k-hint { margin-top: 24px; font-size: 14px; color: var(--text-light); }
+        .aB2k-material-trigger { color: var(--accent); transition: color 0.3s ease; cursor: pointer; border-bottom: 1px dotted var(--accent); }
+        .aB2k-card:hover .aB2k-material-trigger { color: var(--accent-hover); border-bottom-color: var(--accent-hover); }
+        
+        .aB2k-cta { background: #FFFFFF; padding: 48px; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 20px; }
+        .aB2k-cta h4 { font: 700 24px 'Manrope', sans-serif; margin-bottom: 16px; }
+        .aB2k-cta-btns { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+        .aB2k-btn { background: var(--accent); color: #FFFFFF; padding: 16px 32px; border-radius: 8px; font-weight: 600; transition: background 0.3s ease; display: inline-block;}
+        .aB2k-btn:hover { background: var(--accent-hover); }
+        .aB2k-secondary { padding: 16px 32px; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); font-weight: 600; display: inline-block; transition: border-color 0.3s;}
+        .aB2k-secondary:hover { border-color: var(--accent); }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        /* --- БЛОК ПРЕИМУЩЕСТВ (xK9m) --- */
+        .xK9m-section { padding: 100px 0; background: #FFFFFF; }
+        .xK9m-header { text-align: center; max-width: 800px; margin: 0 auto 60px; }
+        .xK9m-label { display: block; font-size: 14px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; letter-spacing: 0.5px; }
+        .xK9m-title { font: 700 44px/1.1 'Manrope', sans-serif; letter-spacing: -1.5px; color: var(--text-main); margin-bottom: 24px; }
+        .xK9m-subtitle { font: 400 16px/1.6 'Inter', sans-serif; color: var(--text-light); }
+        .xK9m-checklist { margin-top: 40px; background: var(--bg-main); padding: 30px; border-radius: 12px; display: inline-block; text-align: left; }
+        .xK9m-checklist-title { font: 700 18px 'Manrope', sans-serif; margin-bottom: 16px; }
+        .xK9m-checklist-list li { margin-bottom: 8px; color: var(--text-light); font-size: 14px; }
+        .xK9m-checklist-list li span { color: var(--accent); font-weight: bold; margin-right: 8px; }
+        
+        .xK9m-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 80px;}
+        .xK9m-card { background: var(--bg-main); padding: 32px; border-radius: 12px; transition: transform 0.3s; }
+        .xK9m-card:hover { transform: translateY(-5px); }
+        .xK9m-icon { width: 48px; height: 48px; margin-bottom: 20px; }
+        .xK9m-card h3 { font: 700 20px 'Manrope', sans-serif; margin-bottom: 12px; }
+        .xK9m-card p { font-size: 14px; color: var(--text-light); }
+        
+        .xK9m-comparison { background: var(--bg-main); padding: 40px; border-radius: 12px; }
+        .xK9m-comparison h3 { font: 700 24px 'Manrope', sans-serif; margin-bottom: 24px; text-align: center;}
+        .xK9m-table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th, td { padding: 16px; border-bottom: 1px solid var(--border-color); }
+        th { font-family: 'Manrope', sans-serif; font-size: 16px; }
+        td { font-size: 15px; color: var(--text-light); }
+        td:last-child, th:last-child { color: #d9534f; } /* Выделение плитки красным */
+        td:first-child, th:first-child { font-weight: 600; color: var(--text-main); }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .contact-phone {
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        /* --- ГЕРОЙ-РАЗДЕЛ (HERO) --- */
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(40px, 6vw, 90px); /* Адаптивный размер шрифта */
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 15px 40px;
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #9c815d;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 60vh;
-            object-fit: cover;
-            margin-top: 40px;
-            border-radius: 4px;
-        }
-
-        /* --- ЦИФРЫ И СТАТИСТИКА --- */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            padding: 80px 0;
-            border-bottom: 1px solid rgba(42, 42, 42, 0.1);
-        }
-
-        .stat-item h3 {
-            font-size: 48px;
-            color: var(--text-main);
-            margin-bottom: 5px;
-            text-transform: none;
-        }
-
-        .stat-item p {
-            font-size: 14px;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- УСЛУГИ (PROJECTS/GRID) --- */
-        .section-title {
-            font-size: 36px;
-            margin: 80px 0 40px 0;
-            border-bottom: 1px solid rgba(42, 42, 42, 0.2);
-            padding-bottom: 20px;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-content h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            text-transform: none;
-        }
-
-        .card-content p {
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
-        /* --- О НАС (ABOUT) --- */
-        .about-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            padding: 80px 0;
-            margin-top: 60px;
-            border-top: 1px solid rgba(42, 42, 42, 0.1);
-        }
-
-        .about-text h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            font-size: 16px;
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        /* --- ПОДВАЛ (FOOTER) --- */
-        footer {
-            background-color: var(--text-main);
-            color: var(--white);
-            padding: 60px 0 30px 0;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-info h4 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-
-        .footer-info p {
-            color: #A0A0A0;
-            margin-bottom: 10px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #A0A0A0;
-            font-size: 12px;
-        }
+        /* --- БЛОК КОНТАКТОВ (c2n1) --- */
+        .c2n1-contacts { padding: 100px 0; }
+        .c2n1-wrapper { max-width: 1170px; margin: 0 auto; padding: 0 16px; }
+        .c2n1-grid { display: grid; grid-template-columns: 1fr; max-width: 800px; margin: 0 auto; }
+        .c2n1-info h2 { font: 700 44px 'Manrope', sans-serif; margin-bottom: 16px; text-align: center;}
+        .c2n1-sub { font-size: 16px; color: var(--text-light); margin-bottom: 40px; text-align: center;}
+        
+        .c2n1-tg-btn { background: var(--accent); color: #fff; padding: 16px 32px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 300px; margin: 0 auto 40px; transition: background 0.3s; position: relative; }
+        .c2n1-tg-btn:hover { background: var(--accent-hover); }
+        .c2n1-pulse { width: 10px; height: 10px; background: #fff; border-radius: 50%; position: absolute; top: 16px; right: 16px; animation: xK9m-pulse 2s infinite; }
+        .c2n1-tg-text { font-weight: 600; font-size: 18px; }
+        .c2n1-tg-btn small { font-size: 12px; opacity: 0.8; }
+        
+        .c2n1-phone-block { text-align: center; margin-bottom: 40px; }
+        .c2n1-phone-block p { margin-bottom: 8px; }
+        .c2n1-phone-link { display: block; font: 700 24px 'Manrope', sans-serif; color: var(--text-main); margin-bottom: 8px; transition: color 0.3s; }
+        .c2n1-phone-link:hover { color: var(--accent); }
+        .c2n1-phone-sub { font-size: 14px; color: var(--text-light); }
+        
+        .c2n1-guarantees { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px; }
+        .c2n1-guarantees li { display: flex; gap: 12px; font-size: 14px; color: var(--text-light); align-items: flex-start; }
+        .c2n1-guarantees svg { flex-shrink: 0; color: var(--accent); }
+        
+        .c2n1-legal { text-align: center; font-size: 12px; color: #999; border-top: 1px solid var(--border-color); padding-top: 20px; }
 
         /* --- АДАПТИВНОСТЬ --- */
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Скрываем меню на мобильных */
-            .about-section { grid-template-columns: 1fr; }
-            .about-image img { height: 300px; }
-            header { flex-direction: column; gap: 15px; }
+        @media (max-width: 992px) {
+            .xK9m-badge { display: none; }
+            .xK9m-grid { grid-template-columns: repeat(2, 1fr); }
+            .aB2k-layout { gap: 40px; }
+            .aB2k-sidebar h2 { font-size: 36px; }
         }
+
+        @media (max-width: 768px) {
+            .xK9m-burger { display: block; }
+            .xK9m-actions { display: none; }
+            .xK9m-nav { position: absolute; top: 72px; left: 0; width: 100%; background: rgba(249, 248, 246, 0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); display: none; padding: 20px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+            .xK9m-nav.active { display: block; animation: xK9m-fadeIn 0.3s ease-out; }
+            .xK9m-nav-list { flex-direction: column; align-items: center; gap: 20px; }
+            .xK9m-nav-list a { font-size: 18px; display: block; padding: 10px; }
+            
+            .aB2k-services { padding: 60px 0; }
+            .aB2k-layout { grid-template-columns: 1fr; }
+            .aB2k-sidebar { position: static; }
+            .aB2k-card-list { grid-template-columns: 1fr; }
+            .aB2k-cta { padding: 24px; }
+            .aB2k-cta-btns { flex-direction: column; }
+            .aB2k-btn, .aB2k-secondary { text-align: center; width: 100%; }
+            
+            .xK9m-title, .aB2k-sidebar h2, .c2n1-info h2 { font-size: 32px; }
+            .xK9m-grid { grid-template-columns: 1fr; }
+            .c2n1-guarantees { grid-template-columns: 1fr; }
+            .xK9m-comparison { padding: 20px; }
+        }
+
+        /* --- КЛАССЫ ДЛЯ JS АНИМАЦИИ --- */
+        .aB2k-card.is-pre-animate { opacity: 0; transform: translateY(20px); }
+        .aB2k-card.is-visible { opacity: 1; transform: translateY(0); transition: all 0.6s ease; }
+        @media (prefers-reduced-motion: reduce) { .aB2k-card.is-pre-animate { opacity: 1; transform: none; } }
     </style>
 </head>
 <body>
 
+    <!-- ШАПКА -->
     <header id="header" class="xK9m-header">
-  <div class="xK9m-wrapper">
-    <a href="/" class="xK9m-logo">ИП Абрамович В.В.</a>
-    
-    <nav class="xK9m-nav">
-      <ul class="xK9m-nav-list">
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#features">Преимущества</a></li>
-        <li><a href="#gallery">Галерея</a></li>
-        <li><a href="#reviews">Отзывы</a></li>
-        <li><a href="#contacts">Контакты</a></li>
-      </ul>
-    </nav>
-    
-    <div class="xK9m-actions">
-      <!-- Бейдж статуса (виден только на десктопе) -->
-      <div class="xK9m-badge">
-        <span class="xK9m-dot"></span> На связи
-      </div>
-      <a href="https://t.me/vladzmir_abramovich" target="_blank" rel="noopener" class="xK9m-btn">Связаться в TG</a>
-    </div>
-
-    <button class="xK9m-burger" aria-label="Меню">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-    </button>
-  </div>
-</header>
-
-    <!-- ГЕРОЙ-РАЗДЕЛ -->
-    <section class="hero container">
-        <h1>ОТДЕЛКА<br>ПВХ ПАНЕЛЯМИ</h1>
-        <p>Профессиональный ремонт ванных комнат, туалетов, балконов и коридоров под ключ. Быстро, качественно и без грязи.</p>
-        <a href="#contacts" class="btn">Заказать расчет</a>
-        <!-- Стоковое фото ванной/отделки -->
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Отделка ПВХ панелями" class="hero-image">
-    </section>
-
-    <!-- ЦИФРЫ (Социальное доказательство) -->
-    <div class="container">
-        <div class="stats">
-            <div class="stat-item">
-                <h3>10+</h3>
-                <p>Лет опыта</p>
-            </div>
-            <div class="stat-item">
-                <h3>500+</h3>
-                <p>Выполненных объектов</p>
-            </div>
-            <div class="stat-item">
-                <h3>100%</h3>
-                <p>Довольных клиентов</p>
-            </div>
-            <div class="stat-item">
-                <h3>2</h3>
-                <p>Года гарантии</p>
-            </div>
+      <div class="xK9m-wrapper">
+        <a href="/" class="xK9m-logo">ИП Абрамович В.В.</a>
+        
+        <nav class="xK9m-nav">
+          <ul class="xK9m-nav-list">
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#benefits">Преимущества</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+        
+        <div class="xK9m-actions">
+          <div class="xK9m-badge">
+            <span class="xK9m-dot"></span> На связи
+          </div>
+          <a href="https://t.me/vladzmir_abramovich" target="_blank" rel="noopener" class="xK9m-btn">Связаться в TG</a>
         </div>
-    </div>
+
+        <button class="xK9m-burger" aria-label="Меню">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </header>
 
     <!-- УСЛУГИ -->
-    <section id="services" class="container">
-        <h2 class="section-title">НАШИ УСЛУГИ</h2>
-        <div class="grid-3">
-            <!-- Карточка 1 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ванная комната">
-                <div class="card-content">
-                    <h3>Отделка ванной и туалета</h3>
-                    <p>Влагостойкие ПВХ панели идеально подходят для санузлов. Монтаж за 1-2 дня без пыли.</p>
-                </div>
+    <section id="services" class="aB2k-services">
+      <div class="aB2k-wrapper">
+        <div class="aB2k-layout">
+          <div class="aB2k-sidebar">
+            <span class="aB2k-label">Где панели выглядят идеально</span>
+            <h2>Решения для каждого помещения</h2>
+            <p class="aB2k-subheading">Подбираю фактуры под конкретные задачи помешений — от классического белого глянца до имитации бетона и дерева. Каждая зона требует своего подхода к монтажу и герметизации.</p>
+            <div class="aB2k-guarantees">
+              <ul>
+                <li>Фиксированная цена в договоре</li>
+                <li>Работа без предоплаты за монтаж</li>
+                <li>Гарантия на герметичность стыков 2 года</li>
+                <li>Закупка материалов по оптовым ценам</li>
+                <li>Уборка строительного мусора</li>
+                <li>Соблюдение закона о тишине</li>
+              </ul>
             </div>
-            <!-- Карточка 2 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Балкон">
-                <div class="card-content">
-                    <h3>Балконы и лоджии</h3>
-                    <p>Утепление и обшивка балконов. Превратим холодный балкон в уютную комнату или кладовую.</p>
+          </div>
+          <div class="aB2k-cards">
+            <div class="aB2k-card-list">
+              <!-- Карточка 1 -->
+              <div class="aB2k-card">
+                <div class="aB2k-card-img"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ванные комнаты"></div>
+                <div class="aB2k-card-content">
+                  <span class="aB2k-term">от 2 дней</span>
+                  <h3>Ванные комнаты</h3>
+                  <p>Создаю полную гидроизоляцию стыков. Панели с фактурой камня или глянца визуально расширяют пространство и не боятся прямого контакта с водой.</p>
+                  <ul class="aB2k-works"><li>Монтаж обрешетки с антисептиком</li><li>Бесшовная стыковка панелей</li><li>Установка ревизионных люков</li><li>Герметизация примыканий сантехники</li><li>Монтаж потолка со светильниками</li><li>Устройство коробов под трубы</li></ul>
+                  <div class="aB2k-hint">Рекомендую: <span class="aB2k-material-trigger">Фактурный бетон или белый жемчуг</span></div>
                 </div>
-            </div>
-            <!-- Карточка 3 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Коридор">
-                <div class="card-content">
-                    <h3>Коридоры и прихожие</h3>
-                    <p>Быстрая отделка стен в прихожей. Широкий выбор фактур: от классического дерева до мрамора.</p>
+              </div>
+              <!-- Карточка 2 -->
+              <div class="aB2k-card">
+                <div class="aB2k-card-img"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Санузлы"></div>
+                <div class="aB2k-card-content">
+                  <span class="aB2k-term">от 1 дня</span>
+                  <h3>Санузлы (Туалеты)</h3>
+                  <p>Идеальное решение для узких помещений. Никакого демонтажа старой плитки — экономим до 15 см пространства и тысячи рублей на вывозе мусора.</p>
+                  <ul class="aB2k-works"><li>Скрытая разводка коммуникаций</li><li>Установка инсталляций в короба</li><li>Монтаж вентиляционных решеток</li><li>Обход сложных углов и ниш</li><li>Чистый демонтаж старых покрытий</li><li>Финальная влажная уборка</li></ul>
+                  <div class="aB2k-hint">Рекомендую: <span class="aB2k-material-trigger">Матовый лен или светлое дерево</span></div>
                 </div>
+              </div>
+              <!-- Карточка 3 -->
+              <div class="aB2k-card">
+                <div class="aB2k-card-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Балконы"></div>
+                <div class="aB2k-card-content">
+                  <span class="aB2k-term">от 2 дней</span>
+                  <h3>Балконы и лоджии</h3>
+                  <p>Использую морозостойкие панели, которые не деформируются при перепадах температур. Легкий уход — достаточно протереть влажной тканью раз в сезон.</p>
+                  <ul class="aB2k-works"><li>Утепление пеноплексом (по запросу)</li><li>Монтаж подоконников и откосов</li><li>Вывод электрики и розеток</li><li>Отделка потолка и установка сушилок</li><li>Зашивка пространства под окнами</li><li>Герметизация оконных швов</li></ul>
+                  <div class="aB2k-hint">Рекомендую: <span class="aB2k-material-trigger">Имитация вагонки или дуб сонома</span></div>
+                </div>
+              </div>
+              <!-- Карточка 4 -->
+              <div class="aB2k-card">
+                <div class="aB2k-card-img"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Кладовые"></div>
+                <div class="aB2k-card-content">
+                  <span class="aB2k-term">от 1 дня</span>
+                  <h3>Кладовые и хозблоки</h3>
+                  <p>Практичное и бюджетное обновление мест хранения. Светлые панели сделают темную кладовку чистой и опрятной за считанные часы.</p>
+                  <ul class="aB2k-works"><li>Быстрый монтаж на клей или каркас</li><li>Организация освещения</li><li>Усиление мест под полки</li><li>Защита от сырости и плесени</li><li>Установка вентиляционных клапанов</li><li>Аккуратные стыки с полом</li></ul>
+                  <div class="aB2k-hint">Рекомендую: <span class="aB2k-material-trigger">Белый глянец для яркости</span></div>
+                </div>
+              </div>
+              <!-- Карточка 5 -->
+              <div class="aB2k-card">
+                <div class="aB2k-card-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Потолочные системы"></div>
+                <div class="aB2k-card-content">
+                  <span class="aB2k-term">от 4 часов</span>
+                  <h3>Потолочные системы</h3>
+                  <p>Реечные или бесшовные потолки ПВХ — лучший выбор для влажных зон. Встроенный свет и идеальная плоскость без штукатурки.</p>
+                  <ul class="aB2k-works"><li>Лазерная разметка уровня</li><li>Монтаж направляющих профилей</li><li>Разводка точек освещения</li><li>Установка точечных светильников</li><li>Монтаж декоративного багета</li><li>Интеграция вытяжных вентиляторов</li></ul>
+                  <div class="aB2k-hint">Рекомендую: <span class="aB2k-material-trigger">Зеркальные вставки или сатин</span></div>
+                </div>
+              </div>
             </div>
+            <div class="aB2k-cta">
+              <h4>Не нашли свое помещение?</h4>
+              <p>Пришлите фото вашего объекта в Telegram — я рассчитаю примерную стоимость и подберу материалы за 15 минут.</p>
+              <div class="aB2k-cta-btns">
+                <a href="#contacts" class="aB2k-btn">Рассчитать стоимость</a>
+                <a href="#gallery" class="aB2k-secondary">Галерея материалов</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- О НАС -->
-    <section id="about" class="container">
-        <div class="about-section">
-            <div class="about-text">
-                <h2>О НАС</h2>
-                <p>Мы — команда профессионалов, специализирующаяся на качественной отделке помещений ПВХ панелями. Работаем под ключ: от замеров до финальной уборки.</p>
-                <p>ИП Абрамович В.В. — это гарантия соблюдения сроков, аккуратность и честные цены. Мы используем только сертифицированные материалы, которые безопасны для здоровья и долговечны в эксплуатации.</p>
-                <p>Наша цель — сделать ремонт быстрым и комфортным для вас, сохранив бюджет.</p>
-            </div>
-            <div class="about-image">
-                <!-- Стоковое фото мастера/инструментов -->
-                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Мастер по отделке">
-            </div>
+    <!-- ПРЕИМУЩЕСТВА -->
+    <section id="benefits" class="xK9m-section">
+      <div class="xK9m-wrapper" style="max-width: 1170px; margin: 0 auto; padding: 0 16px;">
+        <div class="xK9m-header">
+          <span class="xK9m-label">Рациональный выбор</span>
+          <h2 class="xK9m-title">Ремонт, который не мешает жить</h2>
+          <p class="xK9m-subtitle">В отличие от плитки, отделка ПВХ-панелями экономит ваше время, нервы и бюджет. Вы получаете эстетичный результат без необходимости съезжать из квартиры.</p>
+          <div class="xK9m-checklist">
+            <h3 class="xK9m-checklist-title">Чистота 100%</h3>
+            <ul class="xK9m-checklist-list">
+              <li><span>✓</span> Укрываем пол и сантехнику пленкой</li>
+              <li><span>✓</span> Сбор мусора в мешки после каждого этапа</li>
+              <li><span>✓</span> Минимальный уровень шума в разрешенные часы</li>
+              <li><span>✓</span> Использование пылесоса при сверлении</li>
+              <li><span>✓</span> Тщательная герметизация всех стыков</li>
+              <li><span>✓</span> Финальная влажная уборка зоны работ</li>
+            </ul>
+          </div>
         </div>
+        
+        <div class="xK9m-grid">
+          <div class="xK9m-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3063/3063229.png" alt="Иконка" class="xK9m-icon" style="filter: grayscale(1) sepia(0.3) hue-rotate(340deg);">
+            <h3>Без демонтажа старой плитки</h3>
+            <p>Технология позволяет монтировать панели прямо на существующее покрытие. Это экономит до 3 дней работы и избавляет вас от грохота перфоратора и тонн строительного мусора.</p>
+          </div>
+          <div class="xK9m-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2953/2953448.png" alt="Иконка" class="xK9m-icon" style="filter: grayscale(1) sepia(0.3) hue-rotate(340deg);">
+            <h3>Чистота процесса на 100%</h3>
+            <p>Использую профессиональный инструмент с пылеудалением. После завершения монтажа достаточно просто протереть поверхности влажной салфеткой — никакого цементного налета.</p>
+          </div>
+          <div class="xK9m-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2620/2620951.png" alt="Иконка" class="xK9m-icon" style="filter: grayscale(1) sepia(0.3) hue-rotate(340deg);">
+            <h3>Экономия до 60% бюджета</h3>
+            <p>Стоимость качественных ПВХ-панелей с работой мастера в среднем в 2.5 раза ниже, чем укладка плитки. При этом визуально они практически неотличимы от дорогих материалов.</p>
+          </div>
+          <div class="xK9m-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2885/2885412.png" alt="Иконка" class="xK9m-icon" style="filter: grayscale(1) sepia(0.3) hue-rotate(340deg);">
+            <h3>Готовый санузел за 48 часов</h3>
+            <p>Пока плиточник только закончил бы выравнивание стен, я уже сдаю объект. Весь процесс отделки стандартного туалета или ванной комнаты занимает от 1 до 2 рабочих дней.</p>
+          </div>
+          <div class="xK9m-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/1048/1048947.png" alt="Иконка" class="xK9m-icon" style="filter: grayscale(1) sepia(0.3) hue-rotate(340deg);">
+            <h3>Скрытая проводка коммуникаций</h3>
+            <p>Панели позволяют эстетично скрыть трубы, счетчики и инсталляции, оставляя при этом удобный доступ к ревизионным люкам. В случае ремонта демонтаж занимает 15 минут.</p>
+          </div>
+          <div class="xK9m-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966486.png" alt="Иконка" class="xK9m-icon" style="filter: grayscale(1) sepia(0.3) hue-rotate(340deg);">
+            <h3>Влагостойкость и долговечность</h3>
+            <p>ПВХ-панели абсолютно не боятся прямого контакта с водой и перепадов температур. В отличие от плиточных швов, бесшовный монтаж гарантирует гигиеничность на годы.</p>
+          </div>
+        </div>
+
+        <div class="xK9m-comparison">
+          <h3>Честное сравнение решений</h3>
+          <div class="xK9m-table-wrapper">
+            <table>
+              <thead><tr><th>Критерий</th><th>ПВХ-панели</th><th>Плитка</th></tr></thead>
+              <tbody>
+                <tr><td>Срок работ</td><td>1-2 дня</td><td>от 10 дней</td></tr>
+                <tr><td>Подготовка</td><td>Не требуется</td><td>Сбивка старой плитки</td></tr>
+                <tr><td>Уровень пыли</td><td>0% (сухой монтаж)</td><td>100% (грязь)</td></tr>
+                <tr><td>Стоимость</td><td>Экономия до 60%</td><td>Высокая цена</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ПОДВАЛ -->
-    <footer id="contacts">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h4>ИП Абрамович ВВ</h4>
-                    <p>Отделочные работы под ключ</p>
-                    <p>УНП: 000000000</p>
-                </div>
-                <div class="footer-info">
-                    <h4>Контакты</h4>
-                    <p>Телефон: +7 (999) 000-00-00</p>
-                    <p>Email: abramovich@mail.ru</p>
-                    <p>Telegram: @abramovich_otdelka</p>
-                </div>
-                <div class="footer-info">
-                    <h4>Режим работы</h4>
-                    <p>Пн-Вс: с 08:00 до 20:00</p>
-                    <p>Выезд на замер — бесплатно</p>
-                </div>
+    <!-- КОНТАКТЫ -->
+    <section id="contacts" class="c2n1-contacts">
+      <div class="c2n1-wrapper">
+        <div class="c2n1-grid">
+          <div class="c2n1-info">
+            <h2>Готовы обновить интерьер?</h2>
+            <p class="c2n1-sub">Напишите в Telegram — отвечу в течение 15 минут, или свяжитесь со мной напрямую по телефону для консультации.</p>
+            
+            <a href="https://t.me/vladzmir_abramovich" target="_blank" rel="noopener" class="c2n1-tg-btn">
+              <span class="c2n1-pulse"></span>
+              <span class="c2n1-tg-text">Написать в Telegram</span>
+              <small>Владимир сейчас онлайн</small>
+            </a>
+
+            <div class="c2n1-phone-block">
+              <p><strong>Телефоны для связи:</strong></p>
+              <a href="tel:+375296677439" class="c2n1-phone-link">+375 (29) 667-74-39</a>
+              <a href="tel:+375295036368" class="c2n1-phone-link">+375 (29) 503-63-68</a>
+              <p class="c2n1-phone-sub">Работаю ежедневно с 9:00 до 20:00</p>
             </div>
-            <div class="footer-bottom">
-                &copy; 2024 ИП Абрамович ВВ. Все права защищены.
+
+            <ul class="c2n1-guarantees">
+              <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Никаких скрытых платежей после составления сметы</li>
+              <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Строгое соблюдение сроков: санузел за 2 дня</li>
+              <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg> Использую только влагостойкие сертифицированные панели</li>
+              <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> Собственный инструмент и доставка материалов</li>
+              <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Договор и официальная гарантия на все работы</li>
+              <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> Консультация по выбору фактуры материалов бесплатно</li>
+            </ul>
+
+            <div class="c2n1-legal">
+              <p><strong>ИП Абрамович В.В.</strong></p>
+              <p>УНП 193000000 | г. Минск, ул. Примерная, д. 10</p>
+              <p>Зарегистрирован Мингорисполкомом 25.10.2024</p>
             </div>
+          </div>
         </div>
-    </footer>
-document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('.xK9m-header');
-    const burger = header?.querySelector('.xK9m-burger');
-    const nav = header?.querySelector('.xK9m-nav');
+      </div>
+    </section>
 
-    if (burger && nav) {
-        // Открытие/закрытие меню по клику на бургер
-        burger.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Логика мобильного меню (бургер)
+            const header = document.querySelector('.xK9m-header');
+            const burger = header?.querySelector('.xK9m-burger');
+            const nav = header?.querySelector('.xK9m-nav');
 
-        // Закрытие меню при клике на любую ссылку внутри него
-        const navLinks = nav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-            });
+            if (burger && nav) {
+                burger.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                });
+
+                // Закрытие меню при клике на ссылку
+                nav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        nav.classList.remove('active');
+                    });
+                });
+            }
+
+            // 2. Плавная анимация появления карточек услуг при скролле
+            const cards = document.querySelectorAll('.aB2k-card');
+            
+            if (cards.length > 0) {
+                // Добавляем начальный класс скрытия
+                cards.forEach(card => card.classList.add('is-pre-animate'));
+
+                const revealCard = (card, index) => {
+                    setTimeout(() => {
+                        card.classList.remove('is-pre-animate');
+                        card.classList.add('is-visible');
+                    }, index * 100); // Задержка для эффекта "каскада"
+                };
+
+                // Используем нативный IntersectionObserver (встроен в браузеры)
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const idx = Array.from(cards).indexOf(entry.target);
+                            revealCard(entry.target, idx);
+                            observer.unobserve(entry.target); // Отписываемся после появления
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                cards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    // Если карточка уже на экране при загрузке, показываем сразу
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        revealCard(card, Array.from(cards).indexOf(card));
+                    } else {
+                        observer.observe(card);
+                    }
+                });
+            }
         });
-    }
-});
+    </script>
 </body>
 </html>
