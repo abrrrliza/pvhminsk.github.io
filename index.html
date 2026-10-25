@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отделка ПВХ панелями</title>
-    <!-- Шрифты -->
+    <title>ИП Абрамович В.В. | Отделка ПВХ панелями</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- СБРОС И БАЗА --- */
+        /* --- БАЗА --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F7F6F2; /* Светлый фон как на скринах */
+            background-color: #F7F6F2;
             color: #1A1A1A;
             line-height: 1.6;
             padding-top: 80px;
@@ -24,46 +23,35 @@
         img { max-width: 100%; display: block; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
-
-        /* Цвета */
         :root {
             --bg: #F7F6F2;
             --text: #1A1A1A;
             --gray: #7A7A7A;
-            --accent: #B39D88; /* Теплый бежевый */
+            --accent: #B39D88;
             --accent-dark: #9A8068;
             --border: #E5E1DB;
             --white: #FFFFFF;
             --tag-bg: #F0EFEA;
         }
-
         .container { max-width: 1170px; margin: 0 auto; padding: 0 20px; }
-        
-        /* --- ШАПКА --- */
-        .header {
-            position: fixed; top: 0; left: 0; width: 100%; height: 80px; z-index: 100;
-            background: rgba(247, 246, 242, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            display: flex; align-items: center;
-        }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo { font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
-        .nav { display: flex; gap: 32px; }
-        .nav a { font-size: 14px; color: var(--text); transition: color 0.3s; }
-        .nav a:hover { color: var(--accent); }
-        .btn-header { background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: background 0.3s; }
-        .btn-header:hover { background: var(--accent-dark); }
-        .burger { display: none; cursor: pointer; background: none; border: none; }
-
-        /* --- ТИПОГРАФИКА --- */
         .h1 { font-family: 'Manrope', sans-serif; font-size: 64px; line-height: 1.1; font-weight: 700; margin-bottom: 24px; letter-spacing: -2px; }
         .h2 { font-family: 'Manrope', sans-serif; font-size: 42px; line-height: 1.1; font-weight: 700; margin-bottom: 24px; letter-spacing: -1.5px; }
         .h3 { font-family: 'Manrope', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 16px; }
         .label { font-size: 13px; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; font-weight: 600; margin-bottom: 12px; display: block; }
         .subtitle { font-size: 16px; color: var(--gray); max-width: 600px; }
 
-        /* --- HERO СЕКЦИЯ --- */
+        /* --- ШАПКА --- */
+        .header { position: fixed; top: 0; left: 0; width: 100%; height: 80px; z-index: 100; background: rgba(247, 246, 242, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); display: flex; align-items: center; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav { display: flex; gap: 32px; }
+        .nav a { font-size: 14px; transition: color 0.3s; }
+        .nav a:hover { color: var(--accent); }
+        .btn-header { background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: 0.3s; }
+        .btn-header:hover { background: var(--accent-dark); }
+        .burger { display: none; cursor: pointer; background: none; border: none; }
+
+        /* --- HERO --- */
         .hero { text-align: center; padding: 80px 0; max-width: 900px; margin: 0 auto; }
         .hero .h1 { font-size: 56px; }
         .hero-btns { display: flex; justify-content: center; gap: 16px; margin-top: 40px; }
@@ -72,23 +60,21 @@
         .btn-secondary { background: #fff; color: var(--text); padding: 16px 32px; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; border: 1px solid var(--border); transition: 0.3s; }
         .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* --- БЛОК О МАСТЕРЕ --- */
+        /* --- О МАСТЕРЕ --- */
         .about-master { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; margin-bottom: 100px; }
         .master-card { background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
         .master-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-        .master-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; position: relative; }
-        .master-avatar::after { content: ''; position: absolute; bottom: 2px; right: 2px; width: 12px; height: 12px; background: #2ECC71; border: 2px solid #fff; border-radius: 50%; }
+        .master-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
         .master-name { font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 700; }
         .master-role { font-size: 13px; color: var(--gray); }
-        .quote { font-size: 18px; font-style: italic; color: var(--gray); border-left: 2px solid var(--accent); padding-left: 20px; margin-bottom: 24px; line-height: 1.5; }
+        .quote { font-size: 18px; font-style: italic; color: var(--gray); border-left: 2px solid var(--accent); padding-left: 20px; margin-bottom: 24px; }
         .master-list li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 14px; color: var(--gray); }
         .master-list li::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-        
         .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .stat-box { background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: center; }
+        .stat-box { background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
         .stat-num { font-family: 'Manrope', sans-serif; font-size: 48px; font-weight: 700; line-height: 1; margin-bottom: 8px; }
         .stat-num span { font-size: 20px; color: var(--accent); font-weight: 400; }
-        .stat-text { font-size: 13px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-text { font-size: 13px; color: var(--gray); text-transform: uppercase; }
 
         /* --- УСЛУГИ --- */
         .services-section { padding: 80px 0; border-top: 1px solid var(--border); }
@@ -96,43 +82,52 @@
         .services-sidebar { position: sticky; top: 120px; }
         .guarantees-list li { display: flex; gap: 12px; margin-bottom: 16px; font-size: 14px; color: var(--gray); }
         .guarantees-list svg { flex-shrink: 0; color: var(--accent); width: 18px; height: 18px; }
-        
         .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .service-card { background: #fff; padding: 24px; border-radius: 16px; border: 1px solid var(--border); display: flex; flex-direction: column; transition: 0.3s; }
         .service-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: translateY(-3px); }
-        
-        /* Эффект зума для картинок в услугах */
         .service-img-wrapper { overflow: hidden; border-radius: 12px; margin-bottom: 20px; height: 180px; }
         .service-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .service-card:hover .service-img-wrapper img { transform: scale(1.08); }
-
-        .tag { display: inline-block; background: var(--tag-bg); color: var(--text); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 12px; align-self: flex-start; }
+        .tag { display: inline-block; background: var(--tag-bg); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 12px; align-self: flex-start; }
         .service-list { margin-top: 16px; flex-grow: 1; }
         .service-list li { font-size: 14px; color: var(--gray); padding-left: 16px; position: relative; margin-bottom: 8px; }
         .service-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
         .service-hint { margin-top: 20px; font-size: 13px; color: var(--gray); border-top: 1px solid var(--border); padding-top: 16px; }
         .service-hint span { color: var(--accent); border-bottom: 1px dotted var(--accent); }
 
-        /* --- ПРЕИМУЩЕСТВА --- */
-        .benefits-section { padding: 100px 0; border-top: 1px solid var(--border); }
-        .benefits-header { margin-bottom: 60px; }
-        .benefits-checklist { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 800px; }
-        .benefits-checklist li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gray); }
-        .benefits-checklist svg { color: var(--accent); width: 16px; height: 16px; }
-        
-        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 80px; }
-        .benefit-card { background: #fff; padding: 32px; border-radius: 16px; border: 1px solid var(--border); }
-        .benefit-icon { width: 40px; height: 40px; color: var(--accent); margin-bottom: 20px; }
-        .benefit-card h4 { font-family: 'Manrope', sans-serif; font-size: 20px; margin-bottom: 12px; font-weight: 700; }
-        .benefit-card p { font-size: 14px; color: var(--gray); line-height: 1.5; }
-
-        .comparison-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
-        .comparison-table th, .comparison-table td { padding: 20px; text-align: left; border-bottom: 1px solid var(--border); }
-        .comparison-table th { font-family: 'Manrope', sans-serif; font-size: 16px; background: var(--bg); }
-        .comparison-table td { font-size: 14px; color: var(--gray); }
-        .comparison-table tr:last-child td { border-bottom: none; }
-        .text-good { color: #1A1A1A; font-weight: 600; }
-        .text-bad { color: #D9534F; }
+        /* --- КАЛЬКУЛЯТОР --- */
+        .calc-section { padding: 100px 0; background: #fff; border-top: 1px solid var(--border); }
+        .calc-grid { display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: start; }
+        .calc-group { margin-bottom: 30px; }
+        .calc-group h4 { font-family: 'Manrope', sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 700; }
+        .calc-options { display: flex; flex-direction: column; gap: 10px; }
+        .calc-card { border: 1px solid var(--border); border-radius: 12px; padding: 16px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 12px; }
+        .calc-card:hover { border-color: var(--accent); }
+        .calc-card.active { background: var(--bg); border-color: var(--accent); }
+        .calc-card input { accent-color: var(--accent); width: 18px; height: 18px; }
+        .calc-area-controls { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .calc-area-controls input[type="number"] { width: 80px; height: 50px; text-align: center; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 700; border: 1px solid var(--border); border-radius: 12px; outline: none; }
+        .calc-btn-step { width: 50px; height: 50px; border: 1px solid var(--border); background: var(--bg); border-radius: 12px; font-size: 24px; cursor: pointer; transition: 0.3s; }
+        .calc-btn-step:hover { background: var(--accent); color: #fff; }
+        .calc-range { width: 100%; accent-color: var(--accent); cursor: pointer; }
+        .calc-extras { display: flex; flex-direction: column; gap: 10px; }
+        .calc-check { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-size: 14px; color: var(--gray); }
+        .calc-check input { accent-color: var(--accent); width: 18px; height: 18px; margin-top: 2px; }
+        .calc-bill-wrapper { position: sticky; top: 100px; }
+        .calc-bill { background: var(--bg); padding: 32px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .calc-bill-header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px; }
+        .calc-bill-header h3 { font-family: 'Manrope', sans-serif; font-size: 20px; margin-bottom: 4px; }
+        .calc-bill-header p { font-size: 13px; color: var(--gray); }
+        .calc-lines { list-style: none; margin-bottom: 20px; }
+        .calc-line { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 12px; color: var(--gray); }
+        .calc-line span:last-child { font-weight: 600; color: var(--text); }
+        .calc-total { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 16px; margin-bottom: 20px; }
+        .calc-total span:first-child { font-weight: 600; font-size: 16px; }
+        .calc-total span:last-child { font-family: 'Manrope', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); }
+        .calc-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: #fff; padding: 16px; border-radius: 12px; margin-bottom: 20px; }
+        .calc-meta-label { display: block; font-size: 12px; color: var(--gray); text-transform: uppercase; margin-bottom: 4px; }
+        .calc-meta-value { font-weight: 600; font-size: 15px; }
+        .calc-fine { font-size: 11px; color: #999; text-align: center; margin-top: 16px; line-height: 1.4; }
 
         /* --- ГАЛЕРЕЯ --- */
         .gallery-section { padding: 100px 0; border-top: 1px solid var(--border); }
@@ -140,17 +135,13 @@
         .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .gallery-col { display: flex; flex-direction: column; gap: 20px; }
         .gallery-small-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        
         .gallery-item { background: #fff; border-radius: 16px; overflow: hidden; position: relative; display: flex; flex-direction: column; }
-        /* Эффект зума для галереи */
         .gallery-img-wrapper { overflow: hidden; }
         .gallery-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .gallery-item:hover .gallery-img-wrapper img { transform: scale(1.05); }
-        
         .gallery-content { padding: 24px; background: #fff; flex-grow: 1; }
         .gallery-content h4 { font-family: 'Manrope', sans-serif; font-size: 18px; margin-bottom: 8px; }
-        .gallery-content p { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
-        
+        .gallery-content p { font-size: 13px; color: var(--gray); }
         .gallery-tall .gallery-img-wrapper { height: 400px; }
         .gallery-small .gallery-img-wrapper { height: 180px; }
 
@@ -163,91 +154,34 @@
         .btn-tg-big .title { font-weight: 600; font-size: 16px; display: flex; align-items: center; gap: 8px; }
         .btn-tg-big .status { font-size: 13px; opacity: 0.8; margin-top: 4px; }
         .btn-tg-big .dot { width: 8px; height: 8px; background: #2ECC71; border-radius: 50%; position: absolute; top: 24px; right: 24px; animation: pulse 2s infinite; }
-        
         .phone-block p { font-weight: 600; margin-bottom: 8px; font-size: 14px; }
         .phone-number { display: block; font-family: 'Manrope', sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 8px; transition: 0.3s; }
         .phone-number:hover { color: var(--accent); }
-        
         .contact-guarantees { display: flex; flex-direction: column; gap: 16px; margin: 40px 0; }
         .contact-guarantees li { display: flex; gap: 16px; align-items: flex-start; font-size: 14px; color: var(--gray); }
         .contact-guarantees svg { color: var(--accent); width: 20px; height: 20px; flex-shrink: 0; }
-        
         .legal-info { border-top: 1px solid var(--border); padding-top: 24px; font-size: 12px; color: #999; display: flex; flex-direction: column; gap: 4px; }
-
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 70% { box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); } 100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
 
         /* --- АДАПТИВ --- */
         @media (max-width: 992px) {
-            .h1 { font-size: 42px; }
-            .h2 { font-size: 32px; }
+            .h1 { font-size: 42px; } .h2 { font-size: 32px; }
             .about-master { grid-template-columns: 1fr; }
-            .services-layout { grid-template-columns: 1fr; gap: 40px; }
+            .services-layout { grid-template-columns: 1fr; }
             .services-sidebar { position: static; }
-            .benefits-grid { grid-template-columns: 1fr 1fr; }
+            .calc-grid { grid-template-columns: 1fr; }
+            .calc-bill-wrapper { position: static; }
             .gallery-grid { grid-template-columns: 1fr; }
         }
-
         @media (max-width: 768px) {
-            .nav { display: none; }
-            .btn-header { display: none; }
-            .burger { display: block; }
+            .nav { display: none; } .btn-header { display: none; } .burger { display: block; }
             .hero .h1 { font-size: 32px; }
             .hero-btns { flex-direction: column; }
             .services-grid { grid-template-columns: 1fr; }
-            .benefits-grid { grid-template-columns: 1fr; }
-            .benefits-checklist { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
-            .master-card { padding: 24px; }
             .gallery-small-grid { grid-template-columns: 1fr; }
             .phone-number { font-size: 26px; }
-            .comparison-table { display: block; overflow-x: auto; }
         }
-        /* --- СТИЛИ КАЛЬКУЛЯТОРА --- */
-.calc-section { padding: 100px 0; background: #fff; border-top: 1px solid var(--border); }
-.calc-grid { display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: start; }
-.calc-group { margin-bottom: 30px; }
-.calc-group h4 { font-family: 'Manrope', sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 700; }
-
-/* Карточки выбора */
-.calc-options { display: flex; flex-direction: column; gap: 10px; }
-.calc-card { border: 1px solid var(--border); border-radius: 12px; padding: 16px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 12px; }
-.calc-card:hover { border-color: var(--accent); }
-.calc-card.active { background: var(--bg); border-color: var(--accent); }
-.calc-card input { accent-color: var(--accent); width: 18px; height: 18px; }
-
-/* Площадь */
-.calc-area-controls { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
-.calc-area-controls input[type="number"] { width: 80px; height: 50px; text-align: center; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 700; border: 1px solid var(--border); border-radius: 12px; outline: none; }
-.calc-btn-step { width: 50px; height: 50px; border: 1px solid var(--border); background: var(--bg); border-radius: 12px; font-size: 24px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
-.calc-btn-step:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-.calc-range { width: 100%; accent-color: var(--accent); cursor: pointer; }
-
-/* Чекбоксы */
-.calc-extras { display: flex; flex-direction: column; gap: 10px; }
-.calc-check { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-size: 14px; color: var(--gray); }
-.calc-check input { accent-color: var(--accent); width: 18px; height: 18px; margin-top: 2px; }
-
-/* Смета (правая колонка) */
-.calc-bill-wrapper { position: sticky; top: 100px; }
-.calc-bill { background: var(--bg); padding: 32px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-.calc-bill-header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px; }
-.calc-bill-header h3 { font-family: 'Manrope', sans-serif; font-size: 20px; margin-bottom: 4px; }
-.calc-bill-header p { font-size: 13px; color: var(--gray); }
-.calc-lines { list-style: none; margin-bottom: 20px; }
-.calc-line { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 12px; color: var(--gray); }
-.calc-line span:last-child { font-weight: 600; color: var(--text); }
-.calc-total { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 16px; margin-bottom: 20px; }
-.calc-total span:first-child { font-weight: 600; font-size: 16px; }
-.calc-total span:last-child { font-family: 'Manrope', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); }
-.calc-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: #fff; padding: 16px; border-radius: 12px; margin-bottom: 20px; }
-.calc-meta-label { display: block; font-size: 12px; color: var(--gray); text-transform: uppercase; margin-bottom: 4px; }
-.calc-meta-value { font-weight: 600; font-size: 15px; }
-.calc-fine { font-size: 11px; color: #999; text-align: center; margin-top: 16px; line-height: 1.4; }
-
-@media (max-width: 992px) {
-    .calc-grid { grid-template-columns: 1fr; }
-    .calc-bill-wrapper { position: static; }
-}
     </style>
 </head>
 <body>
@@ -258,15 +192,11 @@
             <a href="#" class="logo">ИП Абрамович В.В.</a>
             <nav class="nav">
                 <a href="#services">Услуги</a>
-                <a href="#benefits">Преимущества</a>
+                <a href="#calc">Калькулятор</a>
                 <a href="#gallery">Галерея</a>
-                <!-- Отзывы убраны -->
                 <a href="#contacts">Контакты</a>
             </nav>
             <a href="https://t.me/vladzimir_abramovich" target="_blank" class="btn-header">Связаться в TG</a>
-            <button class="burger" id="burgerBtn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
         </div>
     </header>
 
@@ -275,9 +205,7 @@
         <h1 class="h1">Чистая отделка санузла и балкона ПВХ-панелями за 2 дня</h1>
         <p class="subtitle" style="margin: 0 auto 40px;">Создаю эстетичные интерьеры без горы строительного мусора и шума. Аккуратный монтаж с гарантией на стыки и герметичность.</p>
         <div class="hero-btns">
-            <a href="https://t.me/vladzimir_abramovich" target="_blank" class="btn-primary">Обсудить проект в Telegram 
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
+            <a href="https://t.me/vladzimir_abramovich" target="_blank" class="btn-primary">Обсудить проект в Telegram</a>
             <a href="#gallery" class="btn-secondary">Посмотреть примеры работ</a>
         </div>
     </section>
@@ -286,8 +214,7 @@
     <section class="container about-master">
         <div class="master-card">
             <div class="master-header">
-                <!-- Заглушка для аватарки -->
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Владимир Абрамович" class="master-avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Владимир" class="master-avatar">
                 <div>
                     <div class="master-name">Владимир Абрамович</div>
                     <div class="master-role">ИП</div>
@@ -302,22 +229,10 @@
             </ul>
         </div>
         <div class="stats-grid">
-            <div class="stat-box">
-                <div class="stat-num">2<span>день</span></div>
-                <div class="stat-text">Средний срок отделки</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-num">50<span>+</span></div>
-                <div class="stat-text">Заказов в 2026</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-num">0<span>руб</span></div>
-                <div class="stat-text">Предоплаты</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-num">5<span>.0</span></div>
-                <div class="stat-text">Рейтинг доверия</div>
-            </div>
+            <div class="stat-box"><div class="stat-num">2<span>день</span></div><div class="stat-text">Средний срок</div></div>
+            <div class="stat-box"><div class="stat-num">50<span>+</span></div><div class="stat-text">Заказов</div></div>
+            <div class="stat-box"><div class="stat-num">0<span>руб</span></div><div class="stat-text">Предоплаты</div></div>
+            <div class="stat-box"><div class="stat-num">5<span>.0</span></div><div class="stat-text">Рейтинг</div></div>
         </div>
     </section>
 
@@ -327,325 +242,168 @@
             <div class="services-sidebar">
                 <span class="label">Где панели выглядят идеально</span>
                 <h2 class="h2">Решения для каждого помещения</h2>
-                <p class="subtitle" style="margin-bottom: 30px;">Подбираю фактуры под конкретные задачи помещений — от классического белого глянца до имитации бетона и дерева. Каждая зона требует своего подхода к монтажу и герметизации.</p>
+                <p class="subtitle" style="margin-bottom: 30px;">Подбираю фактуры под конкретные задачи помещений. Каждая зона требует своего подхода к монтажу.</p>
                 <ul class="guarantees-list">
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Фиксированная цена в договоре</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Работа без предоплаты за монтаж</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Гарантия на герметичность стыков 2 года</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Закупка материалов по оптовым ценам</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Уборка строительного мусора</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Соблюдение закона о тишине</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Работа без предоплаты</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Гарантия на стыки 2 года</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Уборка мусора</li>
                 </ul>
             </div>
             <div class="services-grid">
-                <!-- Карточка 1 -->
                 <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ванные">
-                    </div>
+                    <div class="service-img-wrapper"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ванные"></div>
                     <span class="tag">от 2 дней</span>
                     <h3 class="h3">Ванные комнаты</h3>
-                    <p style="font-size: 14px; color: var(--gray); margin-bottom: 16px;">Создаю полную гидроизоляцию стыков. Панели с фактурой камня или глянца визуально расширяют пространство.</p>
-                    <ul class="service-list">
-                        <li>Монтаж обрешетки с антисептиком</li>
-                        <li>Бесшовная стыковка панелей</li>
-                        <li>Установка ревизионных люков</li>
-                        <li>Герметизация примыканий сантехники</li>
-                    </ul>
-                    <div class="service-hint">Рекомендую: <span>Фактурный бетон или белый жемчуг</span></div>
+                    <p style="font-size: 14px; color: var(--gray);">Создаю полную гидроизоляцию стыков. Панели не боятся прямого контакта с водой.</p>
                 </div>
-                <!-- Карточка 2 -->
                 <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Санузлы">
-                    </div>
+                    <div class="service-img-wrapper"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Санузлы"></div>
                     <span class="tag">от 1 дня</span>
-                    <h3 class="h3">Санузлы (Туалеты)</h3>
-                    <p style="font-size: 14px; color: var(--gray); margin-bottom: 16px;">Идеальное решение для узких помещений. Никакого демонтажа старой плитки — экономим до 15 см пространства.</p>
-                    <ul class="service-list">
-                        <li>Скрытая разводка коммуникаций</li>
-                        <li>Установка инсталляций в короба</li>
-                        <li>Монтаж вентиляционных решеток</li>
-                        <li>Обход сложных углов и ниш</li>
-                    </ul>
-                    <div class="service-hint">Рекомендую: <span>Матовый лен или светлое дерево</span></div>
+                    <h3 class="h3">Санузлы</h3>
+                    <p style="font-size: 14px; color: var(--gray);">Идеальное решение для узких помещений. Никакого демонтажа старой плитки.</p>
                 </div>
-                <!-- Карточка 3 -->
                 <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Балконы">
-                    </div>
+                    <div class="service-img-wrapper"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Балконы"></div>
                     <span class="tag">от 2 дней</span>
                     <h3 class="h3">Балконы и лоджии</h3>
-                    <p style="font-size: 14px; color: var(--gray); margin-bottom: 16px;">Использую морозостойкие панели, которые не деформируются при перепадах температур.</p>
-                    <ul class="service-list">
-                        <li>Утепление пеноплексом</li>
-                        <li>Монтаж подоконников и откосов</li>
-                        <li>Вывод электрики и розеток</li>
-                        <li>Отделка потолка и установка сушилок</li>
-                    </ul>
-                    <div class="service-hint">Рекомендую: <span>Имитация вагонки или дуб сонома</span></div>
+                    <p style="font-size: 14px; color: var(--gray);">Использую морозостойкие панели, которые не деформируются при перепадах температур.</p>
                 </div>
-                <!-- Карточка 4 -->
                 <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Кладовые">
-                    </div>
+                    <div class="service-img-wrapper"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Кладовые"></div>
                     <span class="tag">от 1 дня</span>
-                    <h3 class="h3">Кладовые и хозблоки</h3>
-                    <p style="font-size: 14px; color: var(--gray); margin-bottom: 16px;">Практичное и бюджетное обновление мест хранения. Светлые панели сделают кладовку опрятной.</p>
-                    <ul class="service-list">
-                        <li>Быстрый монтаж на клей или каркас</li>
-                        <li>Организация освещения</li>
-                        <li>Усиление мест под полки</li>
-                        <li>Защита от сырости и плесени</li>
-                    </ul>
-                    <div class="service-hint">Рекомендую: <span>Белый глянец для яркости</span></div>
+                    <h3 class="h3">Коридоры</h3>
+                    <p style="font-size: 14px; color: var(--gray);">Практичное и бюджетное обновление. Светлые панели сделают помещение опрятным.</p>
                 </div>
             </div>
         </div>
     </section>
-<!-- КАЛЬКУЛЯТОР -->
-<section class="calc-section" id="calc">
-    <div class="container calc-grid">
-        <!-- Левая часть: Настройки -->
-        <div class="calc-settings">
-            <span class="label">Калькулятор</span>
-            <h2 class="h2">Посчитайте стоимость за минуту</h2>
-            <p class="subtitle" style="margin-bottom: 30px;">Выберите параметры вашего помещения. Точную цену назовем после бесплатного замера.</p>
 
-            <!-- 1. Выбор зоны -->
-            <div class="calc-group">
-                <h4>Где будем делать отделку?</h4>
-                <div class="calc-options">
-                    <label class="calc-card active">
-                        <input type="radio" name="calc-zone" value="bath" data-price="35" data-rate="4" checked>
-                        <span>Ванная / Туалет</span>
-                    </label>
-                    <label class="calc-card">
-                        <input type="radio" name="calc-zone" value="balcony" data-price="30" data-rate="5">
-                        <span>Балкон / Лоджия</span>
-                    </label>
-                    <label class="calc-card">
-                        <input type="radio" name="calc-zone" value="hallway" data-price="25" data-rate="6">
-                        <span>Коридор / Прихожая</span>
-                    </label>
-                </div>
-            </div>
+    <!-- КАЛЬКУЛЯТОР -->
+    <section class="calc-section" id="calc">
+        <div class="container calc-grid">
+            <div class="calc-settings">
+                <span class="label">Калькулятор</span>
+                <h2 class="h2">Посчитайте стоимость за минуту</h2>
+                <p class="subtitle" style="margin-bottom: 30px;">Выберите параметры вашего помещения. Точную цену назовем после бесплатного замера.</p>
 
-            <!-- 2. Тип монтажа -->
-            <div class="calc-group">
-                <h4>Тип монтажа</h4>
-                <div class="calc-options">
-                    <label class="calc-card active">
-                        <input type="radio" name="calc-type" value="frame" data-mult="1" checked>
-                        <span>Каркасный (скрывает неровности)</span>
-                    </label>
-                    <label class="calc-card">
-                        <input type="radio" name="calc-type" value="glue" data-mult="0.9">
-                        <span>Клеевой (для ровных стен)</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- 3. Площадь -->
-            <div class="calc-group calc-area-group">
-                <h4>Площадь стен, м²</h4>
-                <div class="calc-area-controls">
-                    <button type="button" class="calc-btn-step" id="calcMinus">−</button>
-                    <input type="number" id="calcArea" value="12" min="1" max="100">
-                    <button type="button" class="calc-btn-step" id="calcPlus">+</button>
-                </div>
-                <input type="range" id="calcRange" min="1" max="100" value="12" class="calc-range">
-            </div>
-
-            <!-- 4. Дополнительно -->
-            <div class="calc-group">
-                <h4>Дополнительные услуги</h4>
-                <div class="calc-extras">
-                    <label class="calc-check">
-                        <input type="checkbox" name="calc-extra" value="dem" data-price="5" data-rate="30">
-                        <span>Демонтаж старой плитки (+5 р/м²)</span>
-                    </label>
-                    <label class="calc-check">
-                        <input type="checkbox" name="calc-extra" value="ins" data-price="10" data-rate="10">
-                        <span>Утепление балкона (+10 р/м²)</span>
-                    </label>
-                    <label class="calc-check">
-                        <input type="checkbox" name="calc-extra" value="light" data-price="40" data-rate="0" data-fixed="1">
-                        <span>Монтаж точечных светильников (+40 р/шт)</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Правая часть: Смета -->
-        <div class="calc-bill-wrapper">
-            <div class="calc-bill">
-                <div class="calc-bill-header">
-                    <h3>Предварительная смета</h3>
-                    <p>Минск · работа без материалов</p>
-                </div>
-                
-                <ul class="calc-lines" id="calcLines">
-                    <!-- Строки сметы будут генерироваться здесь -->
-                </ul>
-
-                <div class="calc-total">
-                    <span>Итого за работу:</span>
-                    <span id="calcTotal">0 BYN</span>
-                </div>
-
-                <div class="calc-meta">
-                    <div>
-                        <span class="calc-meta-label">Срок</span>
-                        <span class="calc-meta-value" id="calcDays">2 дня</span>
-                    </div>
-                    <div>
-                        <span class="calc-meta-label">Бригада</span>
-                        <span class="calc-meta-value" id="calcCrew">1 мастер</span>
+                <div class="calc-group">
+                    <h4>Где будем делать отделку?</h4>
+                    <div class="calc-options">
+                        <label class="calc-card active">
+                            <input type="radio" name="calc-zone" value="bath" data-price="35" data-rate="4" checked>
+                            <span>Ванная / Туалет</span>
+                        </label>
+                        <label class="calc-card">
+                            <input type="radio" name="calc-zone" value="balcony" data-price="30" data-rate="5">
+                            <span>Балкон / Лоджия</span>
+                        </label>
+                        <label class="calc-card">
+                            <input type="radio" name="calc-zone" value="hallway" data-price="25" data-rate="6">
+                            <span>Коридор / Прихожая</span>
+                        </label>
                     </div>
                 </div>
 
-                <a href="https://t.me/vladzimir_abramovich" target="_blank" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 20px;">Вызвать на замер с этим расчетом</a>
-                <p class="calc-fine">Расчет ориентировочный. Точная смета составляется после замера и фиксируется в договоре.</p>
-            </div>
-        </div>
-    </div>
-</section>
-    <!-- ПРЕИМУЩЕСТВА -->
-    <section id="benefits" class="benefits-section">
-        <div class="container">
-            <div class="benefits-header">
-                <span class="label">Рациональный выбор</span>
-                <h2 class="h2">Ремонт, который не мешает жить</h2>
-                <p class="subtitle">В отличие от плитки, отделка ПВХ-панелями экономит ваше время, нервы и бюджет. Вы получаете эстетичный результат без необходимости съезжать из квартиры.</p>
-                <ul class="benefits-checklist">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Укрываем пол и сантехнику пленкой</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Сбор мусора в мешки после каждого этапа</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Минимальный уровень шума в разрешенные часы</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Использование пылесоса при сверлении</li>
-                </ul>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3"/></svg>
-                    <h4>Без демонтажа старой плитки</h4>
-                    <p>Технология позволяет монтировать панели прямо на существующее покрытие. Это экономит до 3 дней работы и избавляет от тонн строительного мусора.</p>
+                <div class="calc-group">
+                    <h4>Тип монтажа</h4>
+                    <div class="calc-options">
+                        <label class="calc-card active">
+                            <input type="radio" name="calc-type" value="frame" data-mult="1" checked>
+                            <span>Каркасный (скрывает неровности)</span>
+                        </label>
+                        <label class="calc-card">
+                            <input type="radio" name="calc-type" value="glue" data-mult="0.9">
+                            <span>Клеевой (для ровных стен)</span>
+                        </label>
+                    </div>
                 </div>
-                <div class="benefit-card">
-                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                    <h4>Чистота процесса на 100%</h4>
-                    <p>Использую профессиональный инструмент с пылеудалением. После завершения монтажа достаточно просто протереть поверхности влажной салфеткой.</p>
+
+                <div class="calc-group calc-area-group">
+                    <h4>Площадь стен, м²</h4>
+                    <div class="calc-area-controls">
+                        <button type="button" class="calc-btn-step" id="calcMinus">−</button>
+                        <input type="number" id="calcArea" value="12" min="1" max="100">
+                        <button type="button" class="calc-btn-step" id="calcPlus">+</button>
+                    </div>
+                    <input type="range" id="calcRange" min="1" max="100" value="12" class="calc-range">
                 </div>
-                <div class="benefit-card">
-                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M16 8l-4 4-4-4"/></svg>
-                    <h4>Экономия до 60% бюджета</h4>
-                    <p>Стоимость качественных ПВХ-панелей с работой мастера в среднем в 2.5 раза ниже, чем укладка плитки. При этом визуально они неотличимы.</p>
-                </div>
-                <div class="benefit-card">
-                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    <h4>Готовый санузел за 48 часов</h4>
-                    <p>Пока плиточник только закончил бы выравнивание стен, я уже сдаю объект. Весь процесс отделки стандартного туалета занимает 1-2 дня.</p>
-                </div>
-                <div class="benefit-card">
-                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                    <h4>Скрытая проводка коммуникаций</h4>
-                    <p>Панели позволяют эстетично скрыть трубы, счетчики и инсталляции, оставляя при этом удобный доступ к ревизионным люкам.</p>
-                </div>
-                <div class="benefit-card">
-                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    <h4>Влагостойкость и долговечность</h4>
-                    <p>ПВХ-панели абсолютно не боятся прямого контакта с водой и перепадов температур. Бесшовный монтаж гарантирует гигиеничность.</p>
+
+                <div class="calc-group">
+                    <h4>Дополнительные услуги</h4>
+                    <div class="calc-extras">
+                        <label class="calc-check">
+                            <input type="checkbox" name="calc-extra" value="dem" data-price="5" data-rate="30">
+                            <span>Демонтаж старой плитки (+5 р/м²)</span>
+                        </label>
+                        <label class="calc-check">
+                            <input type="checkbox" name="calc-extra" value="ins" data-price="10" data-rate="10">
+                            <span>Утепление балкона (+10 р/м²)</span>
+                        </label>
+                        <label class="calc-check">
+                            <input type="checkbox" name="calc-extra" value="light" data-price="40" data-rate="0" data-fixed="1">
+                            <span>Монтаж точечных светильников (+40 р/шт)</span>
+                        </label>
+                    </div>
                 </div>
             </div>
 
-            <h3 class="h3" style="margin-bottom: 20px;">Честное сравнение решений</h3>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Критерий</th>
-                        <th>ПВХ-панели</th>
-                        <th>Плитка</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Срок работ</td><td class="text-good">1-2 дня</td><td>от 10 дней</td></tr>
-                    <tr><td>Подготовка</td><td class="text-good">Не требуется</td><td>Сбивка старой плитки</td></tr>
-                    <tr><td>Уровень пыли</td><td class="text-good">0% (сухой монтаж)</td><td class="text-bad">100% (грязь)</td></tr>
-                    <tr><td>Стоимость</td><td class="text-good">Экономия до 60%</td><td class="text-bad">Высокая цена</td></tr>
-                </tbody>
-            </table>
+            <div class="calc-bill-wrapper">
+                <div class="calc-bill">
+                    <div class="calc-bill-header">
+                        <h3>Предварительная смета</h3>
+                        <p>Минск · работа без материалов</p>
+                    </div>
+                    <ul class="calc-lines" id="calcLines"></ul>
+                    <div class="calc-total">
+                        <span>Итого за работу:</span>
+                        <span id="calcTotal">0 BYN</span>
+                    </div>
+                    <div class="calc-meta">
+                        <div><span class="calc-meta-label">Срок</span><span class="calc-meta-value" id="calcDays">2 дня</span></div>
+                        <div><span class="calc-meta-label">Бригада</span><span class="calc-meta-value" id="calcCrew">1 мастер</span></div>
+                    </div>
+                    <a href="https://t.me/vladzimir_abramovich" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">Вызвать на замер</a>
+                    <p class="calc-fine">Расчет ориентировочный. Точная смета составляется после замера.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ГАЛЕРЕЯ (с эффектом зума) -->
+    <!-- ГАЛЕРЕЯ -->
     <section id="gallery" class="gallery-section">
         <div class="container">
             <div class="gallery-header">
                 <span class="label">Мои последние объекты</span>
                 <h2 class="h2">Реальные фото выполненных работ</h2>
-                <p class="subtitle" style="margin: 0 auto;">Листайте, чтобы оценить качество углов и стыков — это то, чем я горжусь. Работаю в Минске и области, каждый объект сдан в срок до 3 дней.</p>
             </div>
-            
             <div class="gallery-grid">
-                <!-- Левая колонка (1 большая) -->
                 <div class="gallery-col">
                     <div class="gallery-item gallery-tall">
-                        <div class="gallery-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Санузел">
-                        </div>
+                        <div class="gallery-img-wrapper"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Санузел"></div>
                         <div class="gallery-content">
                             <h4>Санузел в ЖК «Минск-Мир»</h4>
                             <p>Срок: 2 дня | Бюджет: 450 BYN</p>
-                            <p style="font-size: 14px; margin-top: 8px;">Полная облицовка стен панелями с фактурой белого мрамора. Выполнен бесшовный монтаж, скрытая разводка труб.</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Правая колонка (4 маленькие) -->
                 <div class="gallery-col">
                     <div class="gallery-small-grid">
-                        <!-- 1 -->
                         <div class="gallery-item gallery-small">
-                            <div class="gallery-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Лоджия">
-                            </div>
-                            <div class="gallery-content">
-                                <h4>Лоджия 4кв.м, ул. Притыцкого</h4>
-                                <p>Срок: 1.5 дня | Бюджет: 380 BYN</p>
-                            </div>
+                            <div class="gallery-img-wrapper"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Лоджия"></div>
+                            <div class="gallery-content"><h4>Лоджия 4кв.м</h4><p>Срок: 1.5 дня</p></div>
                         </div>
-                        <!-- 2 -->
                         <div class="gallery-item gallery-small">
-                            <div class="gallery-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Туалет">
-                            </div>
-                            <div class="gallery-content">
-                                <h4>Туалет «Антрацит»</h4>
-                                <p>Срок: 1 день | Бюджет: 290 BYN</p>
-                            </div>
+                            <div class="gallery-img-wrapper"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Туалет"></div>
+                            <div class="gallery-content"><h4>Туалет «Антрацит»</h4><p>Срок: 1 день</p></div>
                         </div>
-                        <!-- 3 -->
                         <div class="gallery-item gallery-small">
-                            <div class="gallery-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ванная">
-                            </div>
-                            <div class="gallery-content">
-                                <h4>Ванная комната в хрущевке</h4>
-                                <p>Срок: 2.5 дня | Бюджет: 520 BYN</p>
-                            </div>
+                            <div class="gallery-img-wrapper"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ванная"></div>
+                            <div class="gallery-content"><h4>Ванная в хрущевке</h4><p>Срок: 2.5 дня</p></div>
                         </div>
-                        <!-- 4 -->
                         <div class="gallery-item gallery-small">
-                            <div class="gallery-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Балкон">
-                            </div>
-                            <div class="gallery-content">
-                                <h4>Балкон с зоной отдыха</h4>
-                                <p>Срок: 2 дня | Бюджет: 600 BYN</p>
-                            </div>
+                            <div class="gallery-img-wrapper"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Балкон"></div>
+                            <div class="gallery-content"><h4>Балкон с зоной отдыха</h4><p>Срок: 2 дня</p></div>
                         </div>
                     </div>
                 </div>
@@ -658,182 +416,112 @@
         <div class="container">
             <div class="contacts-inner">
                 <h2 class="h2">Готовы обновить интерьер?</h2>
-                <p class="subtitle" style="margin-bottom: 40px;">Напишите в Telegram — отвечу в течение 15 минут, или свяжитесь со мной напрямую по телефону для консультации.</p>
-                
+                <p class="subtitle" style="margin-bottom: 40px;">Напишите в Telegram — отвечу в течение 15 минут.</p>
                 <div class="contact-method">
                     <a href="https://t.me/vladzimir_abramovich" target="_blank" class="btn-tg-big">
                         <span class="dot"></span>
-                        <span class="title">Написать в Telegram <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                        <span class="title">Написать в Telegram</span>
                         <span class="status">Владимир сейчас онлайн</span>
                     </a>
                 </div>
-
                 <div class="phone-block">
                     <p>Телефоны для связи:</p>
                     <a href="tel:+375296677439" class="phone-number">+375 (29) 667-74-39</a>
                     <a href="tel:+375295036368" class="phone-number">+375 (29) 503-63-68</a>
-                    <p style="font-size: 14px; color: var(--gray);">Работаю ежедневно с 9:00 до 20:00</p>
                 </div>
-
-                <ul class="contact-guarantees">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Никаких скрытых платежей после составления сметы</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Строгое соблюдение сроков: санузел за 2 дня</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Использую только влагостойкие сертифицированные панели</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg> Собственный инструмент и доставка материалов</li>
-                </ul>
-
-                <div class="legal-info">
+                <div class="legal-info" style="margin-top: 40px;">
                     <p><strong>ИП Абрамович В.В.</strong></p>
-                    <p>УНП 193000000 | г. Минск, ул. Примерная, д. 10</p>
-                    <p>Зарегистрирован Мингорисполкомом 25.10.2024</p>
+                    <p>УНП 193000000 | г. Минск</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- JS ДЛЯ МОБИЛЬНОГО МЕНЮ -->
     <script>
-        document.getElementById('burgerBtn').addEventListener('click', function() {
-            // Простая логика для мобильного меню (если нужно будет сделать выпадашку)
-            // Пока просто заглушка, так как в дизайне на скринах мобильного меню нет
-            alert('Для мобильной версии меню находится в разработке. Напишите нам в Telegram!');
-        });
-        // --- ЛОГИКА КАЛЬКУЛЯТОРА ---
-document.addEventListener('DOMContentLoaded', function() {
-    const calcSection = document.getElementById('calc');
-    if (!calcSection) return;
+        document.addEventListener('DOMContentLoaded', function() {
+            const calcSection = document.getElementById('calc');
+            if (!calcSection) return;
 
-    const areaInput = document.getElementById('calcArea');
-    const rangeInput = document.getElementById('calcRange');
-    const minusBtn = document.getElementById('calcMinus');
-    const plusBtn = document.getElementById('calcPlus');
-    const totalEl = document.getElementById('calcTotal');
-    const daysEl = document.getElementById('calcDays');
-    const crewEl = document.getElementById('calcCrew');
-    const linesEl = document.getElementById('calcLines');
+            const areaInput = document.getElementById('calcArea');
+            const rangeInput = document.getElementById('calcRange');
+            const totalEl = document.getElementById('calcTotal');
+            const daysEl = document.getElementById('calcDays');
+            const crewEl = document.getElementById('calcCrew');
+            const linesEl = document.getElementById('calcLines');
 
-    // Функция обновления сметы
-    function updateCalc() {
-        let area = parseFloat(areaInput.value) || 1;
-        if (area < 1) area = 1;
-        if (area > 100) area = 100;
-        
-        // Синхронизация ползунка и инпута
-        rangeInput.value = area;
-        areaInput.value = area;
+            function updateCalc() {
+                let area = parseFloat(areaInput.value) || 1;
+                if (area < 1) area = 1;
+                if (area > 100) area = 100;
+                rangeInput.value = area;
+                areaInput.value = area;
 
-        // Получаем выбранные параметры
-        const zone = document.querySelector('input[name="calc-zone"]:checked');
-        const type = document.querySelector('input[name="calc-type"]:checked');
-        
-        const basePrice = parseFloat(zone.dataset.price);
-        const rate = parseFloat(zone.dataset.rate); // м2 в день
-        const mult = parseFloat(type.dataset.mult);
+                const zone = document.querySelector('input[name="calc-zone"]:checked');
+                const type = document.querySelector('input[name="calc-type"]:checked');
+                const basePrice = parseFloat(zone.dataset.price);
+                const rate = parseFloat(zone.dataset.rate);
+                const mult = parseFloat(type.dataset.mult);
 
-        let total = area * basePrice * mult;
-        let days = Math.ceil(area / rate);
-        
-        // Очищаем список
-        linesEl.innerHTML = '';
+                let total = area * basePrice * mult;
+                let days = Math.ceil(area / rate);
+                
+                linesEl.innerHTML = '';
+                addLine(zone.nextElementSibling.textContent, `${area} м² × ${(basePrice * mult).toFixed(0)} BYN`, `${(area * basePrice * mult).toFixed(0)} BYN`);
 
-        // Добавляем базовую строку
-        addLine(zone.nextElementSibling.textContent, `${area} м² × ${(basePrice * mult).toFixed(0)} BYN`, `${(area * basePrice * mult).toFixed(0)} BYN`);
+                const extras = document.querySelectorAll('input[name="calc-extra"]:checked');
+                extras.forEach(extra => {
+                    const name = extra.nextElementSibling.textContent.split('(')[0].trim();
+                    const price = parseFloat(extra.dataset.price);
+                    const exRate = parseFloat(extra.dataset.rate);
+                    const isFixed = extra.dataset.fixed === '1';
 
-        // Считаем допы
-        const extras = document.querySelectorAll('input[name="calc-extra"]:checked');
-        extras.forEach(extra => {
-            const name = extra.nextElementSibling.textContent.split('(')[0].trim();
-            const price = parseFloat(extra.dataset.price);
-            const exRate = parseFloat(extra.dataset.rate);
-            const isFixed = extra.dataset.fixed === '1';
+                    if (isFixed) {
+                        total += price;
+                        addLine(name, `1 шт × ${price} BYN`, `${price} BYN`);
+                    } else {
+                        total += area * price;
+                        days += Math.ceil(area / exRate);
+                        addLine(name, `${area} м² × ${price} BYN`, `${(area * price).toFixed(0)} BYN`);
+                    }
+                });
 
-            let cost = 0;
-            if (isFixed) {
-                cost = price; // Фиксированная цена (например, за светильник)
-                total += cost;
-                addLine(name, `1 шт × ${price} BYN`, `${cost} BYN`);
-            } else {
-                cost = area * price;
-                total += cost;
-                days += Math.ceil(area / exRate);
-                addLine(name, `${area} м² × ${price} BYN`, `${cost} BYN`);
+                let crew = 1;
+                if (area > 25 && zone.value === 'bath') {
+                    crew = 2;
+                    days = Math.ceil(days / 1.5);
+                }
+
+                totalEl.textContent = `${Math.round(total)} BYN`;
+                let dayWord = 'дней';
+                if (days % 10 === 1 && days % 100 !== 11) dayWord = 'день';
+                else if ([2,3,4].includes(days % 10) && ![12,13,14].includes(days % 100)) dayWord = 'дня';
+                daysEl.textContent = `${days} ${dayWord}`;
+                crewEl.textContent = crew === 2 ? '2 мастера' : '1 мастер';
             }
-        });
 
-        // Определяем бригаду
-        let crew = 1;
-        if (area > 25 && zone.value === 'bath') {
-            crew = 2;
-            days = Math.ceil(days / 1.5); // Двое работают быстрее
-        }
+            function addLine(title, detail, sum) {
+                const li = document.createElement('li');
+                li.className = 'calc-line';
+                li.innerHTML = `<span>${title} <br><small style="font-size:11px; color:#999;">${detail}</small></span><span>${sum}</span>`;
+                linesEl.appendChild(li);
+            }
 
-        // Выводим итоги
-        totalEl.textContent = `${Math.round(total)} BYN`;
-        
-        // Склонение дней
-        let dayWord = 'дней';
-        if (days % 10 === 1 && days % 100 !== 11) dayWord = 'день';
-        else if ([2,3,4].includes(days % 10) && ![12,13,14].includes(days % 100)) dayWord = 'дня';
-        
-        daysEl.textContent = `${days} ${dayWord}`;
-        crewEl.textContent = crew === 2 ? '2 мастера' : '1 мастер';
-    }
+            areaInput.addEventListener('input', updateCalc);
+            rangeInput.addEventListener('input', function() { areaInput.value = this.value; updateCalc(); });
+            document.getElementById('calcMinus').addEventListener('click', () => { let v = parseFloat(areaInput.value) || 1; if (v > 1) { areaInput.value = v - 1; updateCalc(); } });
+            document.getElementById('calcPlus').addEventListener('click', () => { let v = parseFloat(areaInput.value) || 1; if (v < 100) { areaInput.value = v + 1; updateCalc(); } });
 
-    // Вспомогательная функция добавления строки
-    function addLine(title, detail, sum) {
-        const li = document.createElement('li');
-        li.className = 'calc-line';
-        li.innerHTML = `<span>${title} <br><small style="font-size:11px; color:#999;">${detail}</small></span><span>${sum}</span>`;
-        linesEl.appendChild(li);
-    }
-
-    // Обработчики событий
-    areaInput.addEventListener('input', updateCalc);
-    rangeInput.addEventListener('input', function() {
-        areaInput.value = this.value;
-        updateCalc();
-    });
-
-    minusBtn.addEventListener('click', () => {
-        let val = parseFloat(areaInput.value) || 1;
-        if (val > 1) {
-            areaInput.value = val - 1;
-            updateCalc();
-        }
-    });
-
-    plusBtn.addEventListener('click', () => {
-        let val = parseFloat(areaInput.value) || 1;
-        if (val < 100) {
-            areaInput.value = val + 1;
-            updateCalc();
-        }
-    });
-
-    // Подсветка активных карточек и пересчет
-    const radioGroups = document.querySelectorAll('input[type="radio"]');
-    radioGroups.forEach(radio => {
-        radio.addEventListener('change', function() {
-            // Убираем класс active у всех карточек в этой группе
-            const name = this.name;
-            document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-                r.closest('.calc-card').classList.remove('active');
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    document.querySelectorAll(`input[name="${this.name}"]`).forEach(r => r.closest('.calc-card').classList.remove('active'));
+                    this.closest('.calc-card').classList.add('active');
+                    updateCalc();
+                });
             });
-            // Добавляем класс active выбранной
-            this.closest('.calc-card').classList.add('active');
+
+            document.querySelectorAll('input[name="calc-extra"]').forEach(cb => cb.addEventListener('change', updateCalc));
             updateCalc();
         });
-    });
-
-    // Чекбоксы
-    document.querySelectorAll('input[name="calc-extra"]').forEach(cb => {
-        cb.addEventListener('change', updateCalc);
-    });
-
-    // Первый запуск
-    updateCalc();
-});
     </script>
-    
 </body>
 </html>
