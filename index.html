@@ -3,430 +3,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ИП Абрамович В.В. | Отделка ПВХ панелями</title>
+    <title>Отделка ПВХ панелями</title>
     <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- СБРОС СТИЛЕЙ --- */
+        /* --- СБРОС И БАЗА --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F9F8F6;
+            background-color: #F7F6F2; /* Светлый фон как на скринах */
             color: #1A1A1A;
             line-height: 1.6;
-            padding-top: 72px; /* Отступ под фиксированную шапку */
+            padding-top: 80px;
             -webkit-font-smoothing: antialiased;
         }
         img { max-width: 100%; display: block; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* --- ПЕРЕМЕННЫЕ ЦВЕТОВ (60-30-10) --- */
+        /* Цвета */
         :root {
-            --bg: #F9F8F6;        /* 60% фон */
-            --text: #1A1A1A;      /* 30% текст */
-            --gray: #4A4A4A;      /* Доп. текст */
-            --accent: #B59F8B;    /* 10% акцент */
-            --accent-hover: #9E8875;
+            --bg: #F7F6F2;
+            --text: #1A1A1A;
+            --gray: #7A7A7A;
+            --accent: #B39D88; /* Теплый бежевый */
+            --accent-dark: #9A8068;
             --border: #E5E1DB;
             --white: #FFFFFF;
+            --tag-bg: #F0EFEA;
         }
 
+        .container { max-width: 1170px; margin: 0 auto; padding: 0 20px; }
+        
         /* --- ШАПКА --- */
         .header {
-            position: fixed; top: 0; left: 0; width: 100%; height: 72px; z-index: 100;
-            background: rgba(249, 248, 246, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            position: fixed; top: 0; left: 0; width: 100%; height: 80px; z-index: 100;
+            background: rgba(247, 246, 242, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             display: flex; align-items: center;
         }
-        .header-wrapper {
-            max-width: 1170px; margin: 0 auto; padding: 0 16px; width: 100%;
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .logo { font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
-        .nav-list { display: flex; gap: 32px; font-size: 15px; color: var(--gray); }
-        .nav-list a { transition: color 0.25s; }
-        .nav-list a:hover { color: var(--accent); }
-        
-        .header-actions { display: flex; align-items: center; gap: 24px; }
-        .status-badge { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
-        .status-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
-        .btn-tg { background: var(--accent); color: #fff; font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: 12px; transition: 0.3s; }
-        .btn-tg:hover { background: var(--accent-hover); transform: scale(1.02); }
-        .burger { display: none; background: none; border: none; cursor: pointer; color: var(--text); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav { display: flex; gap: 32px; }
+        .nav a { font-size: 14px; color: var(--text); transition: color 0.3s; }
+        .nav a:hover { color: var(--accent); }
+        .btn-header { background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: background 0.3s; }
+        .btn-header:hover { background: var(--accent-dark); }
+        .burger { display: none; cursor: pointer; background: none; border: none; }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(181, 159, 139, 0.7); }
-            70% { box-shadow: 0 0 0 6px rgba(181, 159, 139, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(181, 159, 139, 0); }
-        }
+        /* --- ТИПОГРАФИКА --- */
+        .h1 { font-family: 'Manrope', sans-serif; font-size: 64px; line-height: 1.1; font-weight: 700; margin-bottom: 24px; letter-spacing: -2px; }
+        .h2 { font-family: 'Manrope', sans-serif; font-size: 42px; line-height: 1.1; font-weight: 700; margin-bottom: 24px; letter-spacing: -1.5px; }
+        .h3 { font-family: 'Manrope', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+        .label { font-size: 13px; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; font-weight: 600; margin-bottom: 12px; display: block; }
+        .subtitle { font-size: 16px; color: var(--gray); max-width: 600px; }
 
-        /* --- ОБЩИЕ СТИЛИ СЕКЦИЙ --- */
-        .section { padding: 100px 0; }
-        .container { max-width: 1170px; margin: 0 auto; padding: 0 16px; }
-        .label { display: block; font-size: 14px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; letter-spacing: 0.5px; font-weight: 600; }
-        .h2 { font-family: 'Manrope', sans-serif; font-size: 44px; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 24px; }
-        .subtitle { font-size: 16px; color: var(--gray); margin-bottom: 32px; }
+        /* --- HERO СЕКЦИЯ --- */
+        .hero { text-align: center; padding: 80px 0; max-width: 900px; margin: 0 auto; }
+        .hero .h1 { font-size: 56px; }
+        .hero-btns { display: flex; justify-content: center; gap: 16px; margin-top: 40px; }
+        .btn-primary { background: var(--accent); color: #fff; padding: 16px 32px; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; border: 1px solid var(--accent); }
+        .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+        .btn-secondary { background: #fff; color: var(--text); padding: 16px 32px; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; border: 1px solid var(--border); transition: 0.3s; }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* --- СЕКЦИЯ УСЛУГ --- */
-        .services-layout { display: grid; grid-template-columns: 380px 1fr; gap: 60px; align-items: start; }
-        .sidebar { position: sticky; top: 100px; }
-        .guarantees li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 14px; color: var(--gray); }
-        .guarantees li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+        /* --- БЛОК О МАСТЕРЕ --- */
+        .about-master { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; margin-bottom: 100px; }
+        .master-card { background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        .master-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+        .master-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; position: relative; }
+        .master-avatar::after { content: ''; position: absolute; bottom: 2px; right: 2px; width: 12px; height: 12px; background: #2ECC71; border: 2px solid #fff; border-radius: 50%; }
+        .master-name { font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 700; }
+        .master-role { font-size: 13px; color: var(--gray); }
+        .quote { font-size: 18px; font-style: italic; color: var(--gray); border-left: 2px solid var(--accent); padding-left: 20px; margin-bottom: 24px; line-height: 1.5; }
+        .master-list li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 14px; color: var(--gray); }
+        .master-list li::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
         
-        .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .card {
-            background: var(--white); border-radius: 12px; border: 1px solid var(--border); padding: 24px;
-            display: flex; flex-direction: column; transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.03);
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); }
-        .card-img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 16px; background: #eee; }
-        .card-term { display: inline-block; background: var(--bg); padding: 4px 12px; border-radius: 4px; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
-        .card h3 { font-family: 'Manrope', sans-serif; font-size: 20px; margin-bottom: 12px; }
-        .card p { font-size: 14px; color: var(--gray); margin-bottom: 16px; }
-        .card-list { margin-top: 16px; }
-        .card-list li { font-size: 14px; color: var(--gray); padding-left: 20px; position: relative; margin-bottom: 4px; }
-        .card-list li::before { content: '—'; color: var(--accent); position: absolute; left: 0; }
-        .card-hint { margin-top: 20px; font-size: 14px; color: var(--gray); }
-        .card-hint span { color: var(--accent); border-bottom: 1px dotted var(--accent); cursor: pointer; }
-        
-        .cta-box { background: var(--white); padding: 40px; border-radius: 12px; border: 1px solid var(--border); margin-top: 20px; }
-        .cta-box h4 { font-family: 'Manrope', sans-serif; font-size: 24px; margin-bottom: 16px; }
-        .cta-btns { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
-        .btn-primary { background: var(--accent); color: #fff; padding: 16px 32px; border-radius: 8px; font-weight: 600; transition: 0.3s; display: inline-block; }
-        .btn-primary:hover { background: var(--accent-hover); }
-        .btn-secondary { padding: 16px 32px; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; transition: 0.3s; display: inline-block; }
-        .btn-secondary:hover { border-color: var(--accent); }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-box { background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: center; }
+        .stat-num { font-family: 'Manrope', sans-serif; font-size: 48px; font-weight: 700; line-height: 1; margin-bottom: 8px; }
+        .stat-num span { font-size: 20px; color: var(--accent); font-weight: 400; }
+        .stat-text { font-size: 13px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* --- СЕКЦИЯ ПРЕИМУЩЕСТВ --- */
-        .benefits { background: var(--white); }
-        .benefits-header { text-align: center; max-width: 800px; margin: 0 auto 60px; }
-        .checklist-box { background: var(--bg); padding: 30px; border-radius: 12px; display: inline-block; text-align: left; margin-top: 30px; }
-        .checklist-box h3 { font-family: 'Manrope', sans-serif; font-size: 18px; margin-bottom: 16px; }
-        .checklist-box li { font-size: 14px; color: var(--gray); margin-bottom: 8px; }
-        .checklist-box li span { color: var(--accent); font-weight: bold; margin-right: 8px; }
+        /* --- УСЛУГИ --- */
+        .services-section { padding: 80px 0; border-top: 1px solid var(--border); }
+        .services-layout { display: grid; grid-template-columns: 350px 1fr; gap: 60px; align-items: start; }
+        .services-sidebar { position: sticky; top: 120px; }
+        .guarantees-list li { display: flex; gap: 12px; margin-bottom: 16px; font-size: 14px; color: var(--gray); }
+        .guarantees-list svg { flex-shrink: 0; color: var(--accent); width: 18px; height: 18px; }
         
-        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 80px; }
-        .benefit-card { background: var(--bg); padding: 32px; border-radius: 12px; transition: 0.3s; }
-        .benefit-card:hover { transform: translateY(-5px); }
-        .benefit-icon { width: 48px; height: 48px; margin-bottom: 20px; color: var(--accent); }
-        .benefit-card h3 { font-family: 'Manrope', sans-serif; font-size: 20px; margin-bottom: 12px; }
-        .benefit-card p { font-size: 14px; color: var(--gray); }
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .service-card { background: #fff; padding: 24px; border-radius: 16px; border: 1px solid var(--border); display: flex; flex-direction: column; transition: 0.3s; }
+        .service-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: translateY(-3px); }
+        
+        /* Эффект зума для картинок в услугах */
+        .service-img-wrapper { overflow: hidden; border-radius: 12px; margin-bottom: 20px; height: 180px; }
+        .service-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .service-card:hover .service-img-wrapper img { transform: scale(1.08); }
 
-        .comparison { background: var(--bg); padding: 40px; border-radius: 12px; }
-        .comparison h3 { font-family: 'Manrope', sans-serif; font-size: 24px; margin-bottom: 24px; text-align: center; }
-        .table-wrap { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th, td { padding: 16px; border-bottom: 1px solid var(--border); }
-        th { font-family: 'Manrope', sans-serif; font-size: 16px; }
-        td { font-size: 15px; color: var(--gray); }
-        .highlight-good { color: var(--accent); font-weight: 600; }
-        .highlight-bad { color: #d9534f; }
+        .tag { display: inline-block; background: var(--tag-bg); color: var(--text); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 12px; align-self: flex-start; }
+        .service-list { margin-top: 16px; flex-grow: 1; }
+        .service-list li { font-size: 14px; color: var(--gray); padding-left: 16px; position: relative; margin-bottom: 8px; }
+        .service-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+        .service-hint { margin-top: 20px; font-size: 13px; color: var(--gray); border-top: 1px solid var(--border); padding-top: 16px; }
+        .service-hint span { color: var(--accent); border-bottom: 1px dotted var(--accent); }
 
-        /* --- СЕКЦИЯ КОНТАКТОВ --- */
-        .contacts-info { max-width: 700px; margin: 0 auto; text-align: center; }
-        .tg-btn { 
-            background: var(--accent); color: #fff; padding: 16px 32px; border-radius: 12px; 
-            display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
-            margin: 0 auto 40px; transition: 0.3s; position: relative; min-width: 280px;
-        }
-        .tg-btn:hover { background: var(--accent-hover); }
-        .tg-btn .pulse { width: 8px; height: 8px; background: #fff; border-radius: 50%; position: absolute; top: 16px; right: 16px; animation: pulse 2s infinite; }
-        .tg-btn .text { font-weight: 600; font-size: 18px; }
-        .tg-btn .sub { font-size: 12px; opacity: 0.8; }
+        /* --- ПРЕИМУЩЕСТВА --- */
+        .benefits-section { padding: 100px 0; border-top: 1px solid var(--border); }
+        .benefits-header { margin-bottom: 60px; }
+        .benefits-checklist { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 800px; }
+        .benefits-checklist li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--gray); }
+        .benefits-checklist svg { color: var(--accent); width: 16px; height: 16px; }
         
-        .phones { margin-bottom: 40px; }
-        .phones p { margin-bottom: 8px; }
-        .phone-link { display: block; font-family: 'Manrope', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 8px; transition: 0.3s; }
-        .phone-link:hover { color: var(--accent); }
-        .phones .sub { font-size: 14px; color: var(--gray); }
-        
-        .contact-guarantees { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; text-align: left; margin-bottom: 40px; }
-        .contact-guarantees li { display: flex; gap: 12px; font-size: 14px; color: var(--gray); align-items: flex-start; }
-        .contact-guarantees svg { flex-shrink: 0; color: var(--accent); width: 20px; height: 20px; }
-        
-        .legal { font-size: 12px; color: #999; border-top: 1px solid var(--border); padding-top: 20px; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 80px; }
+        .benefit-card { background: #fff; padding: 32px; border-radius: 16px; border: 1px solid var(--border); }
+        .benefit-icon { width: 40px; height: 40px; color: var(--accent); margin-bottom: 20px; }
+        .benefit-card h4 { font-family: 'Manrope', sans-serif; font-size: 20px; margin-bottom: 12px; font-weight: 700; }
+        .benefit-card p { font-size: 14px; color: var(--gray); line-height: 1.5; }
 
-        /* --- АДАПТИВНОСТЬ --- */
+        .comparison-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+        .comparison-table th, .comparison-table td { padding: 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .comparison-table th { font-family: 'Manrope', sans-serif; font-size: 16px; background: var(--bg); }
+        .comparison-table td { font-size: 14px; color: var(--gray); }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .text-good { color: #1A1A1A; font-weight: 600; }
+        .text-bad { color: #D9534F; }
+
+        /* --- ГАЛЕРЕЯ --- */
+        .gallery-section { padding: 100px 0; border-top: 1px solid var(--border); }
+        .gallery-header { text-align: center; margin-bottom: 60px; }
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .gallery-col { display: flex; flex-direction: column; gap: 20px; }
+        .gallery-small-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        .gallery-item { background: #fff; border-radius: 16px; overflow: hidden; position: relative; display: flex; flex-direction: column; }
+        /* Эффект зума для галереи */
+        .gallery-img-wrapper { overflow: hidden; }
+        .gallery-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .gallery-item:hover .gallery-img-wrapper img { transform: scale(1.05); }
+        
+        .gallery-content { padding: 24px; background: #fff; flex-grow: 1; }
+        .gallery-content h4 { font-family: 'Manrope', sans-serif; font-size: 18px; margin-bottom: 8px; }
+        .gallery-content p { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
+        
+        .gallery-tall .gallery-img-wrapper { height: 400px; }
+        .gallery-small .gallery-img-wrapper { height: 180px; }
+
+        /* --- КОНТАКТЫ --- */
+        .contacts-section { padding: 100px 0; border-top: 1px solid var(--border); }
+        .contacts-inner { max-width: 600px; }
+        .contact-method { margin-bottom: 40px; }
+        .btn-tg-big { background: var(--accent); color: #fff; padding: 20px 32px; border-radius: 12px; display: inline-flex; flex-direction: column; transition: 0.3s; position: relative; width: 100%; max-width: 350px; }
+        .btn-tg-big:hover { background: var(--accent-dark); }
+        .btn-tg-big .title { font-weight: 600; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+        .btn-tg-big .status { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+        .btn-tg-big .dot { width: 8px; height: 8px; background: #2ECC71; border-radius: 50%; position: absolute; top: 24px; right: 24px; animation: pulse 2s infinite; }
+        
+        .phone-block p { font-weight: 600; margin-bottom: 8px; font-size: 14px; }
+        .phone-number { display: block; font-family: 'Manrope', sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 8px; transition: 0.3s; }
+        .phone-number:hover { color: var(--accent); }
+        
+        .contact-guarantees { display: flex; flex-direction: column; gap: 16px; margin: 40px 0; }
+        .contact-guarantees li { display: flex; gap: 16px; align-items: flex-start; font-size: 14px; color: var(--gray); }
+        .contact-guarantees svg { color: var(--accent); width: 20px; height: 20px; flex-shrink: 0; }
+        
+        .legal-info { border-top: 1px solid var(--border); padding-top: 24px; font-size: 12px; color: #999; display: flex; flex-direction: column; gap: 4px; }
+
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 70% { box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); } 100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); } }
+
+        /* --- АДАПТИВ --- */
         @media (max-width: 992px) {
-            .status-badge { display: none; }
+            .h1 { font-size: 42px; }
+            .h2 { font-size: 32px; }
+            .about-master { grid-template-columns: 1fr; }
             .services-layout { grid-template-columns: 1fr; gap: 40px; }
-            .sidebar { position: static; }
-            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-            .h2 { font-size: 36px; }
+            .services-sidebar { position: static; }
+            .benefits-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            .nav-list { display: none; }
-            .header-actions { display: none; }
+            .nav { display: none; }
+            .btn-header { display: none; }
             .burger { display: block; }
-            
-            /* Мобильное меню */
-            .mobile-nav {
-                position: absolute; top: 72px; left: 0; width: 100%;
-                background: var(--bg); border-bottom: 1px solid var(--border);
-                padding: 20px 0; display: none; flex-direction: column; align-items: center; gap: 20px;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            }
-            .mobile-nav.active { display: flex; }
-            .mobile-nav a { font-size: 18px; padding: 10px; }
-
-            .section { padding: 60px 0; }
-            .cards-grid { grid-template-columns: 1fr; }
+            .hero .h1 { font-size: 32px; }
+            .hero-btns { flex-direction: column; }
+            .services-grid { grid-template-columns: 1fr; }
             .benefits-grid { grid-template-columns: 1fr; }
-            .h2 { font-size: 32px; }
-            .contact-guarantees { grid-template-columns: 1fr; }
-            .cta-box { padding: 24px; }
-            .cta-btns { flex-direction: column; }
-            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-            .comparison { padding: 20px; }
+            .benefits-checklist { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .master-card { padding: 24px; }
+            .gallery-small-grid { grid-template-columns: 1fr; }
+            .phone-number { font-size: 26px; }
+            .comparison-table { display: block; overflow-x: auto; }
         }
-
-        /* Классы для JS анимации */
-        .card.anim-hidden { opacity: 0; transform: translateY(20px); }
-        .card.anim-visible { opacity: 1; transform: translateY(0); transition: all 0.6s ease; }
     </style>
 </head>
 <body>
 
     <!-- ШАПКА -->
     <header class="header">
-        <div class="header-wrapper">
-            <a href="/" class="logo">ИП Абрамович В.В.</a>
-            
-            <nav class="nav-list">
+        <div class="container header-inner">
+            <a href="#" class="logo">ИП Абрамович В.В.</a>
+            <nav class="nav">
                 <a href="#services">Услуги</a>
                 <a href="#benefits">Преимущества</a>
                 <a href="#gallery">Галерея</a>
                 <a href="#reviews">Отзывы</a>
                 <a href="#contacts">Контакты</a>
             </nav>
-            
-            <div class="header-actions">
-                <div class="status-badge">
-                    <span class="status-dot"></span> На связи
-                </div>
-                <a href="https://t.me/vladzmir_abramovich" target="_blank" class="btn-tg">Связаться в TG</a>
-            </div>
-
-            <button class="burger" id="burgerBtn" aria-label="Меню">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <a href="https://t.me/vladzmir_abramovich" target="_blank" class="btn-header">Связаться в TG</a>
+            <button class="burger" id="burgerBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
-        
-        <!-- Мобильное меню -->
-        <nav class="mobile-nav" id="mobileNav">
-            <a href="#services">Услуги</a>
-            <a href="#benefits">Преимущества</a>
-            <a href="#gallery">Галерея</a>
-            <a href="#reviews">Отзывы</a>
-            <a href="#contacts">Контакты</a>
-        </nav>
     </header>
 
-    <!-- УСЛУГИ -->
-    <section id="services" class="section">
-        <div class="container">
-            <div class="services-layout">
-                <div class="sidebar">
-                    <span class="label">Где панели выглядят идеально</span>
-                    <h2 class="h2">Решения для каждого помещения</h2>
-                    <p class="subtitle">Подбираю фактуры под конкретные задачи помещений — от классического белого глянца до имитации бетона и дерева. Каждая зона требует своего подхода к монтажу и герметизации.</p>
-                    <ul class="guarantees">
-                        <li>Фиксированная цена в договоре</li>
-                        <li>Работа без предоплаты за монтаж</li>
-                        <li>Гарантия на герметичность стыков 2 года</li>
-                        <li>Закупка материалов по оптовым ценам</li>
-                        <li>Уборка строительного мусора</li>
-                        <li>Соблюдение закона о тишине</li>
-                    </ul>
-                </div>
-                
+    <!-- HERO -->
+    <section class="hero container">
+        <h1 class="h1">Чистая отделка санузла и балкона ПВХ-панелями за 2 дня</h1>
+        <p class="subtitle" style="margin: 0 auto 40px;">Создаю эстетичные интерьеры без горы строительного мусора и шума. Аккуратный монтаж с гарантией на стыки и герметичность.</p>
+        <div class="hero-btns">
+            <a href="https://t.me/vladzmir_abramovich" target="_blank" class="btn-primary">Обсудить проект в Telegram 
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#gallery" class="btn-secondary">Посмотреть примеры работ</a>
+        </div>
+    </section>
+
+    <!-- О МАСТЕРЕ -->
+    <section class="container about-master">
+        <div class="master-card">
+            <div class="master-header">
+                <!-- Заглушка для аватарки -->
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Владимир Абрамович" class="master-avatar">
                 <div>
-                    <div class="cards-grid">
-                        <!-- Карточка 1 -->
-                        <div class="card">
-                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ванные комнаты" class="card-img">
-                            <span class="card-term">от 2 дней</span>
-                            <h3>Ванные комнаты</h3>
-                            <p>Создаю полную гидроизоляцию стыков. Панели с фактурой камня или глянца визуально расширяют пространство и не боятся прямого контакта с водой.</p>
-                            <ul class="card-list">
-                                <li>Монтаж обрешетки с антисептиком</li>
-                                <li>Бесшовная стыковка панелей</li>
-                                <li>Установка ревизионных люков</li>
-                                <li>Герметизация примыканий сантехники</li>
-                                <li>Монтаж потолка со светильниками</li>
-                            </ul>
-                            <div class="card-hint">Рекомендую: <span>Фактурный бетон или белый жемчуг</span></div>
-                        </div>
-                        
-                        <!-- Карточка 2 -->
-                        <div class="card">
-                            <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Санузлы" class="card-img">
-                            <span class="card-term">от 1 дня</span>
-                            <h3>Санузлы (Туалеты)</h3>
-                            <p>Идеальное решение для узких помещений. Никакого демонтажа старой плитки — экономим до 15 см пространства и тысячи рублей на вывозе мусора.</p>
-                            <ul class="card-list">
-                                <li>Скрытая разводка коммуникаций</li>
-                                <li>Установка инсталляций в короба</li>
-                                <li>Монтаж вентиляционных решеток</li>
-                                <li>Обход сложных углов и ниш</li>
-                                <li>Чистый демонтаж старых покрытий</li>
-                            </ul>
-                            <div class="card-hint">Рекомендую: <span>Матовый лен или светлое дерево</span></div>
-                        </div>
-                        
-                        <!-- Карточка 3 -->
-                        <div class="card">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Балконы" class="card-img">
-                            <span class="card-term">от 2 дней</span>
-                            <h3>Балконы и лоджии</h3>
-                            <p>Использую морозостойкие панели, которые не деформируются при перепадах температур. Легкий уход — достаточно протереть влажной тканью раз в сезон.</p>
-                            <ul class="card-list">
-                                <li>Утепление пеноплексом (по запросу)</li>
-                                <li>Монтаж подоконников и откосов</li>
-                                <li>Вывод электрики и розеток</li>
-                                <li>Отделка потолка и установка сушилок</li>
-                                <li>Зашивка пространства под окнами</li>
-                            </ul>
-                            <div class="card-hint">Рекомендую: <span>Имитация вагонки или дуб сонома</span></div>
-                        </div>
-                        
-                        <!-- Карточка 4 -->
-                        <div class="card">
-                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Кладовые" class="card-img">
-                            <span class="card-term">от 1 дня</span>
-                            <h3>Кладовые и хозблоки</h3>
-                            <p>Практичное и бюджетное обновление мест хранения. Светлые панели сделают темную кладовку чистой и опрятной за считанные часы.</p>
-                            <ul class="card-list">
-                                <li>Быстрый монтаж на клей или каркас</li>
-                                <li>Организация освещения</li>
-                                <li>Усиление мест под полки</li>
-                                <li>Защита от сырости и плесени</li>
-                                <li>Аккуратные стыки с полом</li>
-                            </ul>
-                            <div class="card-hint">Рекомендую: <span>Белый глянец для яркости</span></div>
-                        </div>
+                    <div class="master-name">Владимир Абрамович</div>
+                    <div class="master-role">ИП</div>
+                </div>
+            </div>
+            <div class="quote">«Я лично гарантирую качество каждого стыка и чистоту в вашей квартире.»</div>
+            <ul class="master-list">
+                <li>Личная гарантия мастера</li>
+                <li>Выезд на замер 0 руб</li>
+                <li>Чистота после работ</li>
+                <li>Минск и минский район</li>
+            </ul>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-num">2<span>день</span></div>
+                <div class="stat-text">Средний срок отделки</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">50<span>+</span></div>
+                <div class="stat-text">Заказов в 2026</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">0<span>руб</span></div>
+                <div class="stat-text">Предоплаты</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">5<span>.0</span></div>
+                <div class="stat-text">Рейтинг доверия</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- УСЛУГИ -->
+    <section id="services" class="services-section">
+        <div class="container services-layout">
+            <div class="services-sidebar">
+                <span class="label">Где панели выглядят идеально</span>
+                <h2 class="h2">Решения для каждого помещения</h2>
+                <p class="subtitle" style="margin-bottom: 30px;">Подбираю фактуры под конкретные задачи помещений — от классического белого глянца до имитации бетона и дерева. Каждая зона требует своего подхода к монтажу и герметизации.</p>
+                <ul class="guarantees-list">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Фиксированная цена в договоре</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Работа без предоплаты за монтаж</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Гарантия на герметичность стыков 2 года</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Закупка материалов по оптовым ценам</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Уборка строительного мусора</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Соблюдение закона о тишине</li>
+                </ul>
+            </div>
+            <div class="services-grid">
+                <!-- Карточка 1 -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ванные">
                     </div>
-                    
-                    <div class="cta-box">
-                        <h4>Не нашли свое помещение?</h4>
-                        <p>Пришлите фото вашего объекта в Telegram — я рассчитаю примерную стоимость и подберу материалы за 15 минут.</p>
-                        <div class="cta-btns">
-                            <a href="#contacts" class="btn-primary">Рассчитать стоимость</a>
-                            <a href="#gallery" class="btn-secondary">Галерея материалов</a>
-                        </div>
+                    <span class="tag">от 2 дней</span>
+                    <h3 class="h3">Ванные комнаты</h3>
+                    <p style="font-size: 14px; color: var(--gray); margin-bottom: 16px;">Создаю полную гидроизоляцию стыков. Панели с фактурой камня или глянца визуально расширяют пространство.</p>
+                    <ul class="service-list">
+                        <li>Монтаж обрешетки с антисептиком</li>
+                        <li>Бесшовная стыковка панелей</li>
+                        <li>Установка ревизионных люков</li>
+                        <li>Герметизация примыканий сантехники</li>
+                    </ul>
+                    <div class="service-hint">Рекомендую: <span>Фактурный бетон или белый жемчуг</span></div>
+                </div>
+                <!-- Карточка 2 -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Санузлы">
                     </div>
+                    <span class="tag">от 1 дня</span>
+                    <h3 class="h3">Санузлы (Туалеты)</h3>
+                    <p style="font-size: 14px; color: var(--gray); margin-bottom: 16px;">Идеальное решение для узких помещений. Никакого демонтажа старой плитки — экономим до 15 см пространства.</p>
+                    <ul class="service-list">
+                        <li>Скрытая разводка коммуникаций</li>
+                        <li>Установка инсталляций в короба</li>
+                        <li>Монтаж вентиляционных решеток</li>
+                        <li>Обход сложных углов и ниш</li>
+                    </ul>
+                    <div class="service-hint">Рекомендую: <span>Матовый лен или светлое дерево</span></div>
+                </div>
+                <!-- Карточка 3 -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Балконы">
+                    </div>
+                    <span class="tag">от 2 дней</span>
+                    <h3 class="h3">Балконы и лоджии</h3>
+                    <p style="font-size: 14px; color: var(--gray); margin-bottom: 16px;">Использую морозостойкие панели, которые не деформируются при перепадах температур.</p>
+                    <ul class="service-list">
+                        <li>Утепление пеноплексом</li>
+                        <li>Монтаж подоконников и откосов</li>
+                        <li>Вывод электрики и розеток</li>
+                        <li>Отделка потолка и установка сушилок</li>
+                    </ul>
+                    <div class="service-hint">Рекомендую: <span>Имитация вагонки или дуб сонома</span></div>
+                </div>
+                <!-- Карточка 4 -->
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Кладовые">
+                    </div>
+                    <span class="tag">от 1 дня</span>
+                    <h3 class="h3">Кладовые и хозблоки</h3>
+                    <p style="font-size: 14px; color: var(--gray); margin-bottom: 16px;">Практичное и бюджетное обновление мест хранения. Светлые панели сделают кладовку опрятной.</p>
+                    <ul class="service-list">
+                        <li>Быстрый монтаж на клей или каркас</li>
+                        <li>Организация освещения</li>
+                        <li>Усиление мест под полки</li>
+                        <li>Защита от сырости и плесени</li>
+                    </ul>
+                    <div class="service-hint">Рекомендую: <span>Белый глянец для яркости</span></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ПРЕИМУЩЕСТВА -->
-    <section id="benefits" class="section benefits">
+    <section id="benefits" class="benefits-section">
         <div class="container">
             <div class="benefits-header">
                 <span class="label">Рациональный выбор</span>
                 <h2 class="h2">Ремонт, который не мешает жить</h2>
                 <p class="subtitle">В отличие от плитки, отделка ПВХ-панелями экономит ваше время, нервы и бюджет. Вы получаете эстетичный результат без необходимости съезжать из квартиры.</p>
-                <div class="checklist-box">
-                    <h3>Чистота 100%</h3>
-                    <ul>
-                        <li><span>✓</span> Укрываем пол и сантехнику пленкой</li>
-                        <li><span>✓</span> Сбор мусора в мешки после каждого этапа</li>
-                        <li><span>✓</span> Минимальный уровень шума в разрешенные часы</li>
-                        <li><span>✓</span> Использование пылесоса при сверлении</li>
-                        <li><span>✓</span> Тщательная герметизация всех стыков</li>
-                        <li><span>✓</span> Финальная влажная уборка зоны работ</li>
-                    </ul>
-                </div>
+                <ul class="benefits-checklist">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Укрываем пол и сантехнику пленкой</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Сбор мусора в мешки после каждого этапа</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Минимальный уровень шума в разрешенные часы</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Использование пылесоса при сверлении</li>
+                </ul>
             </div>
             
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3"/></svg>
-                    <h3>Без демонтажа старой плитки</h3>
-                    <p>Технология позволяет монтировать панели прямо на существующее покрытие. Экономит до 3 дней работы и избавляет от тонн мусора.</p>
+                    <h4>Без демонтажа старой плитки</h4>
+                    <p>Технология позволяет монтировать панели прямо на существующее покрытие. Это экономит до 3 дней работы и избавляет от тонн строительного мусора.</p>
                 </div>
                 <div class="benefit-card">
-                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    <h3>Чистота процесса на 100%</h3>
-                    <p>Использую профессиональный инструмент с пылеудалением. После монтажа достаточно протереть поверхности влажной салфеткой.</p>
+                    <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                    <h4>Чистота процесса на 100%</h4>
+                    <p>Использую профессиональный инструмент с пылеудалением. После завершения монтажа достаточно просто протереть поверхности влажной салфеткой.</p>
                 </div>
                 <div class="benefit-card">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M16 8l-4 4-4-4"/></svg>
-                    <h3>Экономия до 60% бюджета</h3>
-                    <p>Стоимость панелей с работой в 2.5 раза ниже укладки плитки. Визуально они практически неотличимы от дорогих материалов.</p>
+                    <h4>Экономия до 60% бюджета</h4>
+                    <p>Стоимость качественных ПВХ-панелей с работой мастера в среднем в 2.5 раза ниже, чем укладка плитки. При этом визуально они неотличимы.</p>
                 </div>
                 <div class="benefit-card">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    <h3>Готовый санузел за 48 часов</h3>
-                    <p>Пока плиточник только закончил бы выравнивание, я уже сдаю объект. Весь процесс занимает от 1 до 2 рабочих дней.</p>
+                    <h4>Готовый санузел за 48 часов</h4>
+                    <p>Пока плиточник только закончил бы выравнивание стен, я уже сдаю объект. Весь процесс отделки стандартного туалета занимает 1-2 дня.</p>
                 </div>
                 <div class="benefit-card">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                    <h3>Скрытая проводка коммуникаций</h3>
-                    <p>Панели позволяют эстетично скрыть трубы и счетчики, оставляя доступ к ревизионным люкам. Демонтаж при ремонте — 15 минут.</p>
+                    <h4>Скрытая проводка коммуникаций</h4>
+                    <p>Панели позволяют эстетично скрыть трубы, счетчики и инсталляции, оставляя при этом удобный доступ к ревизионным люкам.</p>
                 </div>
                 <div class="benefit-card">
                     <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    <h3>Влагостойкость и долговечность</h3>
-                    <p>ПВХ-панели не боятся воды и перепадов температур. Бесшовный монтаж гарантирует гигиеничность на годы.</p>
+                    <h4>Влагостойкость и долговечность</h4>
+                    <p>ПВХ-панели абсолютно не боятся прямого контакта с водой и перепадов температур. Бесшовный монтаж гарантирует гигиеничность.</p>
                 </div>
             </div>
 
-            <div class="comparison">
-                <h3>Честное сравнение решений</h3>
-                <div class="table-wrap">
-                    <table>
-                        <thead><tr><th>Критерий</th><th>ПВХ-панели</th><th>Плитка</th></tr></thead>
-                        <tbody>
-                            <tr><td>Срок работ</td><td class="highlight-good">1-2 дня</td><td>от 10 дней</td></tr>
-                            <tr><td>Подготовка</td><td class="highlight-good">Не требуется</td><td>Сбивка старой плитки</td></tr>
-                            <tr><td>Уровень пыли</td><td class="highlight-good">0% (сухой монтаж)</td><td class="highlight-bad">100% (грязь)</td></tr>
-                            <tr><td>Стоимость</td><td class="highlight-good">Экономия до 60%</td><td class="highlight-bad">Высокая цена</td></tr>
-                        </tbody>
-                    </table>
+            <h3 class="h3" style="margin-bottom: 20px;">Честное сравнение решений</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Критерий</th>
+                        <th>ПВХ-панели</th>
+                        <th>Плитка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Срок работ</td><td class="text-good">1-2 дня</td><td>от 10 дней</td></tr>
+                    <tr><td>Подготовка</td><td class="text-good">Не требуется</td><td>Сбивка старой плитки</td></tr>
+                    <tr><td>Уровень пыли</td><td class="text-good">0% (сухой монтаж)</td><td class="text-bad">100% (грязь)</td></tr>
+                    <tr><td>Стоимость</td><td class="text-good">Экономия до 60%</td><td class="text-bad">Высокая цена</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ГАЛЕРЕЯ (с эффектом зума) -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="gallery-header">
+                <span class="label">Мои последние объекты</span>
+                <h2 class="h2">Реальные фото выполненных работ</h2>
+                <p class="subtitle" style="margin: 0 auto;">Листайте, чтобы оценить качество углов и стыков — это то, чем я горжусь. Работаю в Минске и области, каждый объект сдан в срок до 3 дней.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Левая колонка (1 большая) -->
+                <div class="gallery-col">
+                    <div class="gallery-item gallery-tall">
+                        <div class="gallery-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Санузел">
+                        </div>
+                        <div class="gallery-content">
+                            <h4>Санузел в ЖК «Минск-Мир»</h4>
+                            <p>Срок: 2 дня | Бюджет: 450 BYN</p>
+                            <p style="font-size: 14px; margin-top: 8px;">Полная облицовка стен панелями с фактурой белого мрамора. Выполнен бесшовный монтаж, скрытая разводка труб.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Правая колонка (4 маленькие) -->
+                <div class="gallery-col">
+                    <div class="gallery-small-grid">
+                        <!-- 1 -->
+                        <div class="gallery-item gallery-small">
+                            <div class="gallery-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Лоджия">
+                            </div>
+                            <div class="gallery-content">
+                                <h4>Лоджия 4кв.м, ул. Притыцкого</h4>
+                                <p>Срок: 1.5 дня | Бюджет: 380 BYN</p>
+                            </div>
+                        </div>
+                        <!-- 2 -->
+                        <div class="gallery-item gallery-small">
+                            <div class="gallery-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Туалет">
+                            </div>
+                            <div class="gallery-content">
+                                <h4>Туалет «Антрацит»</h4>
+                                <p>Срок: 1 день | Бюджет: 290 BYN</p>
+                            </div>
+                        </div>
+                        <!-- 3 -->
+                        <div class="gallery-item gallery-small">
+                            <div class="gallery-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ванная">
+                            </div>
+                            <div class="gallery-content">
+                                <h4>Ванная комната в хрущевке</h4>
+                                <p>Срок: 2.5 дня | Бюджет: 520 BYN</p>
+                            </div>
+                        </div>
+                        <!-- 4 -->
+                        <div class="gallery-item gallery-small">
+                            <div class="gallery-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Балкон">
+                            </div>
+                            <div class="gallery-content">
+                                <h4>Балкон с зоной отдыха</h4>
+                                <p>Срок: 2 дня | Бюджет: 600 BYN</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- КОНТАКТЫ -->
-    <section id="contacts" class="section">
+    <section id="contacts" class="contacts-section">
         <div class="container">
-            <div class="contacts-info">
+            <div class="contacts-inner">
                 <h2 class="h2">Готовы обновить интерьер?</h2>
-                <p class="subtitle">Напишите в Telegram — отвечу в течение 15 минут, или свяжитесь со мной напрямую по телефону для консультации.</p>
+                <p class="subtitle" style="margin-bottom: 40px;">Напишите в Telegram — отвечу в течение 15 минут, или свяжитесь со мной напрямую по телефону для консультации.</p>
                 
-                <a href="https://t.me/vladzmir_abramovich" target="_blank" class="tg-btn">
-                    <span class="pulse"></span>
-                    <span class="text">Написать в Telegram</span>
-                    <span class="sub">Владимир сейчас онлайн</span>
-                </a>
+                <div class="contact-method">
+                    <a href="https://t.me/vladzmir_abramovich" target="_blank" class="btn-tg-big">
+                        <span class="dot"></span>
+                        <span class="title">Написать в Telegram <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                        <span class="status">Владимир сейчас онлайн</span>
+                    </a>
+                </div>
 
-                <div class="phones">
-                    <p><strong>Телефоны для связи:</strong></p>
-                    <a href="tel:+375296677439" class="phone-link">+375 (29) 667-74-39</a>
-                    <a href="tel:+375295036368" class="phone-link">+375 (29) 503-63-68</a>
-                    <p class="sub">Работаю ежедневно с 9:00 до 20:00</p>
+                <div class="phone-block">
+                    <p>Телефоны для связи:</p>
+                    <a href="tel:+375296677439" class="phone-number">+375 (29) 667-74-39</a>
+                    <a href="tel:+375295036368" class="phone-number">+375 (29) 503-63-68</a>
+                    <p style="font-size: 14px; color: var(--gray);">Работаю ежедневно с 9:00 до 20:00</p>
                 </div>
 
                 <ul class="contact-guarantees">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Никаких скрытых платежей после составления сметы</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Строгое соблюдение сроков: санузел за 2 дня</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Только влагостойкие сертифицированные панели</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg> Собственный инструмент и доставка материалов</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Никаких скрытых платежей после составления сметы</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Строгое соблюдение сроков: санузел за 2 дня</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Использую только влагостойкие сертифицированные панели</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg> Собственный инструмент и доставка материалов</li>
                 </ul>
 
-                <div class="legal">
+                <div class="legal-info">
                     <p><strong>ИП Абрамович В.В.</strong></p>
                     <p>УНП 193000000 | г. Минск, ул. Примерная, д. 10</p>
                     <p>Зарегистрирован Мингорисполкомом 25.10.2024</p>
@@ -435,65 +538,12 @@
         </div>
     </section>
 
-    <!-- JS -->
+    <!-- JS ДЛЯ МОБИЛЬНОГО МЕНЮ -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Мобильное меню
-            const burgerBtn = document.getElementById('burgerBtn');
-            const mobileNav = document.getElementById('mobileNav');
-
-            if (burgerBtn && mobileNav) {
-                burgerBtn.addEventListener('click', function() {
-                    mobileNav.classList.toggle('active');
-                });
-
-                // Закрытие при клике на ссылку
-                mobileNav.querySelectorAll('a').forEach(function(link) {
-                    link.addEventListener('click', function() {
-                        mobileNav.classList.remove('active');
-                    });
-                });
-            }
-
-            // 2. Анимация карточек при скролле
-            const cards = document.querySelectorAll('.card');
-            
-            if (cards.length > 0) {
-                // Скрываем все карточки
-                cards.forEach(function(card) {
-                    card.classList.add('anim-hidden');
-                });
-
-                // Функция показа
-                function showCard(card, index) {
-                    setTimeout(function() {
-                        card.classList.remove('anim-hidden');
-                        card.classList.add('anim-visible');
-                    }, index * 100);
-                }
-
-                // Если браузер поддерживает IntersectionObserver
-                if ('IntersectionObserver' in window) {
-                    const observer = new IntersectionObserver(function(entries) {
-                        entries.forEach(function(entry) {
-                            if (entry.isIntersecting) {
-                                const idx = Array.prototype.indexOf.call(cards, entry.target);
-                                showCard(entry.target, idx);
-                                observer.unobserve(entry.target);
-                            }
-                        });
-                    }, { threshold: 0.1 });
-
-                    cards.forEach(function(card) {
-                        observer.observe(card);
-                    });
-                } else {
-                    // Если не поддерживает (старые браузеры) - просто показываем
-                    cards.forEach(function(card, index) {
-                        showCard(card, index);
-                    });
-                }
-            }
+        document.getElementById('burgerBtn').addEventListener('click', function() {
+            // Простая логика для мобильного меню (если нужно будет сделать выпадашку)
+            // Пока просто заглушка, так как в дизайне на скринах мобильного меню нет
+            alert('Для мобильной версии меню находится в разработке. Напишите нам в Telegram!');
         });
     </script>
 </body>
