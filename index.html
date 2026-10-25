@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИП Абрамович ВВ | Отделка ПВХ панелями</title>
+    <style>
+        /* --- ЦВЕТОВАЯ ПАЛИТРА (Правило 60-30-10) --- */
+        :root {
+            --bg-main: #F7F5F0; /* 60% - Светлый фон */
+            --text-main: #2A2A2A; /* 30% - Темный графит */
+            --text-light: #6B6B6B; 
+            --accent: #B89B72; /* 10% - Древесный/золотистый акцент */
+            --white: #FFFFFF;
+        }
+
+        /* --- БАЗОВЫЕ СТИЛИ --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- ШАПКА (NAVIGATION) --- */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(42, 42, 42, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .contact-phone {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* --- ГЕРОЙ-РАЗДЕЛ (HERO) --- */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 90px); /* Адаптивный размер шрифта */
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #9c815d;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+            margin-top: 40px;
+            border-radius: 4px;
+        }
+
+        /* --- ЦИФРЫ И СТАТИСТИКА --- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(42, 42, 42, 0.1);
+        }
+
+        .stat-item h3 {
+            font-size: 48px;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            text-transform: none;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- УСЛУГИ (PROJECTS/GRID) --- */
+        .section-title {
+            font-size: 36px;
+            margin: 80px 0 40px 0;
+            border-bottom: 1px solid rgba(42, 42, 42, 0.2);
+            padding-bottom: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-transform: none;
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* --- О НАС (ABOUT) --- */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 80px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(42, 42, 42, 0.1);
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* --- ПОДВАЛ (FOOTER) --- */
+        footer {
+            background-color: var(--text-main);
+            color: var(--white);
+            padding: 60px 0 30px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .footer-info p {
+            color: #A0A0A0;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #A0A0A0;
+            font-size: 12px;
+        }
+
+        /* --- АДАПТИВНОСТЬ --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Скрываем меню на мобильных */
+            .about-section { grid-template-columns: 1fr; }
+            .about-image img { height: 300px; }
+            header { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <div class="container">
+        <header>
+            <div class="logo">Абрамович ВВ</div>
+            <nav class="nav-links">
+                <a href="#services">Услуги</a>
+                <a href="#about">О нас</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="contact-phone">+7 (999) 000-00-00</div>
+        </header>
+    </div>
+
+    <!-- ГЕРОЙ-РАЗДЕЛ -->
+    <section class="hero container">
+        <h1>ОТДЕЛКА<br>ПВХ ПАНЕЛЯМИ</h1>
+        <p>Профессиональный ремонт ванных комнат, туалетов, балконов и коридоров под ключ. Быстро, качественно и без грязи.</p>
+        <a href="#contacts" class="btn">Заказать расчет</a>
+        <!-- Стоковое фото ванной/отделки -->
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Отделка ПВХ панелями" class="hero-image">
+    </section>
+
+    <!-- ЦИФРЫ (Социальное доказательство) -->
+    <div class="container">
+        <div class="stats">
+            <div class="stat-item">
+                <h3>10+</h3>
+                <p>Лет опыта</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Выполненных объектов</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Довольных клиентов</p>
+            </div>
+            <div class="stat-item">
+                <h3>2</h3>
+                <p>Года гарантии</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- УСЛУГИ -->
+    <section id="services" class="container">
+        <h2 class="section-title">НАШИ УСЛУГИ</h2>
+        <div class="grid-3">
+            <!-- Карточка 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ванная комната">
+                <div class="card-content">
+                    <h3>Отделка ванной и туалета</h3>
+                    <p>Влагостойкие ПВХ панели идеально подходят для санузлов. Монтаж за 1-2 дня без пыли.</p>
+                </div>
+            </div>
+            <!-- Карточка 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Балкон">
+                <div class="card-content">
+                    <h3>Балконы и лоджии</h3>
+                    <p>Утепление и обшивка балконов. Превратим холодный балкон в уютную комнату или кладовую.</p>
+                </div>
+            </div>
+            <!-- Карточка 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Коридор">
+                <div class="card-content">
+                    <h3>Коридоры и прихожие</h3>
+                    <p>Быстрая отделка стен в прихожей. Широкий выбор фактур: от классического дерева до мрамора.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О НАС -->
+    <section id="about" class="container">
+        <div class="about-section">
+            <div class="about-text">
+                <h2>О НАС</h2>
+                <p>Мы — команда профессионалов, специализирующаяся на качественной отделке помещений ПВХ панелями. Работаем под ключ: от замеров до финальной уборки.</p>
+                <p>ИП Абрамович В.В. — это гарантия соблюдения сроков, аккуратность и честные цены. Мы используем только сертифицированные материалы, которые безопасны для здоровья и долговечны в эксплуатации.</p>
+                <p>Наша цель — сделать ремонт быстрым и комфортным для вас, сохранив бюджет.</p>
+            </div>
+            <div class="about-image">
+                <!-- Стоковое фото мастера/инструментов -->
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Мастер по отделке">
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>ИП Абрамович ВВ</h4>
+                    <p>Отделочные работы под ключ</p>
+                    <p>УНП: 000000000</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Контакты</h4>
+                    <p>Телефон: +7 (999) 000-00-00</p>
+                    <p>Email: abramovich@mail.ru</p>
+                    <p>Telegram: @abramovich_otdelka</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Вс: с 08:00 до 20:00</p>
+                    <p>Выезд на замер — бесплатно</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 ИП Абрамович ВВ. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
